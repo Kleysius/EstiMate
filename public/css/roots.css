@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+/* font-family: 'Montserrat', sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Hind+Madurai&display=swap');
+/* font-family: 'Hind Madurai', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Routes colors */
+:root {
+    --dark-blue: #0D0221;
+    --dark-gray: #707070;
+    --light-gray: #b5bfd9;
+    --white: #FEFFFE;
+    --bright-blue: #4333FF;
+    --light-green: #02DEAF;
+    --orange: #FF4000;
+    --pink: #FF0035;
+}

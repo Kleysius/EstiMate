@@ -1,0 +1,560 @@
+{% extends "/base.twig" %}
+
+{% block title %}Estimation
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/estimate.css">
+	<link rel="stylesheet" href="/css/roots.css">
+{% endblock %}
+
+{% block content %}
+	<form action="/submit-estimation" method="post">
+		<div class="progressBar">
+			<div class="progressBar-green progressBar-anim"></div>
+		</div>
+
+		<section id="questionZero">
+			<h2 class="section-title">Nom du projet</h2>
+			<h3 class="question-title">Quel est le nom de votre projet ?</h3>
+			<input type="text" id="website_name" name="website_name" class="form_input" placeholder="Nom du projet"/>
+			<label for="website_examples" class="form_label">Joli nom !</label>
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionOne">
+			<h2 class="section-title">Type de site web</h2>
+			<h3 class="question-title">Quel est le type de site web que vous souhaitez faire développer ?</h3>
+			<div class="card-container">
+				<div class="card">
+					<input type="radio" name="website_type" id="vitrine" value="vitrine">
+					<label for="vitrine">Site vitrine</label>
+					<p>Un site web destiné à présenter les informations de base d'une entreprise, d'une organisation ou d'un individu</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="ecommerce" value="ecommerce">
+					<label for="ecommerce">Site e-commerce</label>
+					<p>Une plateforme en ligne qui permet de vendre des produits ou des services directement aux consommateurs</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="blog" value="blog">
+					<label for="blog">Blog</label>
+					<p>Un site web où l'auteur partage des articles, des opinions, des réflexions ou des informations</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="portfolio" value="portfolio">
+					<label for="portfolio">Portfolio</label>
+					<p>Un site web qui présente les réalisations, les compétences et les projets d'un individu ou d'une agence créative</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="news" value="actualités">
+					<label for="news">Site d'actualités</label>
+					<p>Un site web dédié à la publication d'articles et de contenus d'actualités sur des sujets variés</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="social" value="social">
+					<label for="social">Réseau social</label>
+					<p>Une plateforme en ligne qui permet aux utilisateurs de se connecter, d'interagir et de partager des contenus avec d'autres utilisateurs</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="forum" value="forum">
+					<label for="forum">Forum</label>
+					<p>Un site web où les utilisateurs peuvent participer à des discussions, poser des questions, partager des idées et interagir</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="educational" value="éducatif">
+					<label for="educational">Site éducatif</label>
+					<p>Un site web qui fournit des informations, des ressources et des cours en ligne sur des sujets éducatifs</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="job" value="emploi">
+					<label for="job">Site d'offres d'emploi</label>
+					<p>Un site web qui rassemble des offres d'emploi et permet aux demandeurs d'emploi de rechercher et de postuler à des emplois</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="booking" value="réservation">
+					<label for="booking">Site de réservation</label>
+					<p>Un site web permettant aux utilisateurs de réserver des services tels que des hôtels, des vols, des voitures de location, des restaurants</p>
+				</div>
+				<div class="card">
+					<input type="radio" name="website_type" id="elearning" value="e-learning">
+					<label for="elearning">Site d'apprentissage en ligne</label>
+					<p>Un site web qui propose des cours en ligne, des tutoriels, des vidéos éducatives et d'autres ressources pour l'apprentissage à distance</p>
+				</div>
+			</div>
+
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionTwo">
+			<h2 class="section-title">Design et contenu</h2>
+			<div class="questions-container">
+				<div class="question-group">
+					<h3 class="question-title">Possédez-vous une maquette/design du site web ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="mockup-yes" name="mockup" value="oui">
+						<label for="mockup-yes">Oui</label>
+						<input type="radio" id="mockup-no" name="mockup" value="non">
+						<label for="mockup-no">Non</label>
+					</div>
+				</div>
+
+				<div class="question-group">
+					<h3 class="question-title">Besoin de services de conception graphique ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="graphic_design-yes" name="graphic_design" value="oui">
+						<label for="graphic_design-yes">Oui</label>
+						<input type="radio" id="graphic_design-no" name="graphic_design" value="non">
+						<label for="graphic_design-no">Non</label>
+					</div>
+				</div>
+
+				<div class="question-group">
+					<h3 class="question-title">Quel est le niveau de personnalisation du design souhaité ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="customization-low" name="customization" value="faible">
+						<label for="customization-low">Faible</label>
+						<input type="radio" id="customization-medium" name="customization" value="moyen">
+						<label for="customization-medium">Moyen</label>
+						<input type="radio" id="customization-high" name="customization" value="élevé">
+						<label for="customization-high">Élevé</label>
+					</div>
+				</div>
+
+				<div class="question-group">
+					<h3 class="question-title">Avez-vous déjà rédigé le contenu du site ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="content-yes" name="content" value="oui">
+						<label for="content-yes">Oui</label>
+						<input type="radio" id="content-no" name="content" value="non">
+						<label for="content-no">Non</label>
+					</div>
+				</div>
+			</div>
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionThree">
+			<h2 class="section-title">Structure du site web</h2>
+
+			<label for="page_number" class="page_number">Quel est le nombre approximatif de pages ?</label>
+			<select id="page_number" name="page_number">
+				<option value="1">1 page</option>
+				<option value="2-5">Entre 2 et 5 pages</option>
+				<option value="5-10">Entre 5 et 10 pages</option>
+				<option value="10-20">Entre 10 et 20 pages</option>
+				<option value="20+">20 pages et plus</option>
+			</select>
+
+			<fieldset class="checkbox-group">
+				<legend class="question-title">Avez-vous besoin de pages ou de sections spéciales ?<br><span class="chooseOptions">(sélectionnez toutes les options qui s'appliquent)</span>
+				</legend>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="portfolio_page">
+						<input type="checkbox" class="checkbox-input" id="portfolio_page" name="special_pages" value="Portfolio">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-images"></i>
+							</span>
+							<span class="checkbox-label">Portfolio</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="testimonials_page">
+						<input type="checkbox" class="checkbox-input" id="testimonials_page" name="special_pages" value="Témoignages">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-comment"></i>
+							</span>
+							<span class="checkbox-label">Avis</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="faq_page">
+						<input type="checkbox" class="checkbox-input" id="faq_page" name="special_pages" value="F.A.Q.">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-question"></i>
+							</span>
+							<span class="checkbox-label">FAQ</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="online_shop_page">
+						<input type="checkbox" class="checkbox-input" id="online_shop_page" name="special_pages" value="Boutique en ligne">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-shopping-cart"></i>
+							</span>
+							<span class="checkbox-label">Boutique en ligne</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="donotknow">
+						<input type="checkbox" class="checkbox-input" id="donotknow" name="special_pages" value="Aucun"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-question-circle"></i>
+							</span>
+							<span class="checkbox-label">Je ne sais pas</span>
+						</span>
+					</label>
+				</div>
+
+			</fieldset>
+
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+
+		<section id="questionFour">
+			<h2 class="section-title">Langues et localisation</h2>
+
+			<div class="questions-container">
+				<div class="question-group">
+					<h3 class="question-title">Besoin d'une version multilingue ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="multilingual-yes" name="multilingual" value="oui">
+						<label for="multilingual-yes">Oui</label>
+
+						<input type="radio" id="multilingual-no" name="multilingual" value="non">
+						<label for="multilingual-no">Non</label>
+					</div>
+				</div>
+
+				<div class="question-group">
+					<h3 class="question-title">Combien de langues votre site devra-t-il supporter ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="language-count-1" name="language_count" value="1">
+						<label for="language-count-1">1</label>
+						<input type="radio" id="language-count-2-5" name="language_count" value="2-5">
+						<label for="language-count-2-5">2 - 5</label>
+						<input type="radio" id="language-count-6-more" name="language_count" value="6-plus">
+						<label for="language-count-6-more">6 ou plus</label>
+					</div>
+				</div>
+
+				<div class="question-group">
+					<h3 class="question-title">Votre site nécessite-t-il un système de conversion de devises ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="currency-conversion-yes" name="currency_conversion" value="oui">
+						<label for="currency-conversion-yes">Oui</label>
+						<input type="radio" id="currency-conversion-no" name="currency_conversion" value="non">
+						<label for="currency-conversion-no">Non</label>
+					</div>
+				</div>
+
+				<div class="question-group">
+					<h3 class="question-title">Votre site nécessite-t-il une adaptation du contenu en fonction de la localisation de l'utilisateur ?</h3>
+					<div class="radio-group">
+						<input type="radio" id="location-based-content-yes" name="location_based_content" value="oui">
+						<label for="location-based-content-yes">Oui</label>
+						<input type="radio" id="location-based-content-no" name="location_based_content" value="non">
+						<label for="location-based-content-no">Non</label>
+					</div>
+				</div>
+			</div>
+
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionFive">
+			<h2 class="section-title">Intégration avec des services tiers</h2>
+			<fieldset class="checkbox-group">
+				<legend class="question-title">Services tiers à intégrer</legend>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="analytics_tools">
+						<input type="checkbox" class="checkbox-input" id="analytics_tools" name="third_party_services" value="Outils analytiques">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-chart-line"></i>
+							</span>
+							<span class="checkbox-label">Outils d'analyse</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="email_marketing_services">
+						<input type="checkbox" class="checkbox-input" id="email_marketing_services" name="third_party_services" value="Services de marketing par email">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-envelope-open-text"></i>
+							</span>
+							<span class="checkbox-label">Services de marketing par e-mail</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="crm_systems">
+						<input type="checkbox" class="checkbox-input" id="crm_systems" name="third_party_services" value="Systèmes CRM">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-users-cog"></i>
+							</span>
+							<span class="checkbox-label">Systèmes de gestion de la relation client (CRM)</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="social_media_integration">
+						<input type="checkbox" class="checkbox-input" id="social_media_integration" name="third_party_services" value="Intégration des médias sociaux">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-share-alt"></i>
+							</span>
+							<span class="checkbox-label">Intégration des médias sociaux</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="online_payment_systems">
+						<input type="checkbox" class="checkbox-input" id="online_payment_systems" name="third_party_services" value="Systèmes de paiement en ligne">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-credit-card"></i>
+							</span>
+							<span class="checkbox-label">Systèmes de paiement en ligne
+							</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="live_chat_tools">
+						<input type="checkbox" class="checkbox-input" id="live_chat_tools" name="third_party_services" value="Outils de chat en direct">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-comments"></i>
+							</span>
+							<span class="checkbox-label">Outils de chat en direct</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="video_audio_services">
+						<input type="checkbox" class="checkbox-input" id="video_audio_services" name="third_party_services" value="Services vidéo et audio">
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-play-circle"></i>
+							</span>
+							<span class="checkbox-label">Intégration des services de vidéo ou d'audio</span>
+						</span>
+					</label>
+				</div>
+
+			</fieldset>
+
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionSix">
+			<h2 class="section-title">Sécurité</h2>
+			<h3 class="question-title">Besoin d'une authentification des utilisateurs ?</h3>
+
+			<div class="radio-group user-auth-group">
+				<input type="radio" id="user_auth-yes" name="user_auth" value="oui" class="user-auth-option">
+				<label for="user_auth-yes" class="user-auth-label">Oui</label>
+				<input type="radio" id="user_auth-no" name="user_auth" value="non" class="user-auth-option">
+				<label for="user_auth-no" class="user-auth-label">Non</label>
+			</div>
+
+			<fieldset class="checkbox-group">
+				<legend class="question-title">Exigences de sécurité spécifiques</legend>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="ssl_certificate">
+						<input type="checkbox" id="ssl_certificate" name="security_services" value="Certificat SSL" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-certificate"></i>
+							</span>
+							<span class="checkbox-label">Certificat SSL</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="two_factor_auth">
+						<input type="checkbox" id="two_factor_auth" name="security_services" value="Authentification à deux facteurs" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-user-shield"></i>
+							</span>
+							<span class="checkbox-label">Authentification à deux facteurs</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="ddos_protection">
+						<input type="checkbox" id="ddos_protection" name="security_services" value="Protection DDoS" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-shield-alt"></i>
+							</span>
+							<span class="checkbox-label">Protection contre les attaques DDoS</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="data_encryption">
+						<input type="checkbox" id="data_encryption" name="security_services" value="Cryptage des données" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-lock"></i>
+							</span>
+							<span class="checkbox-label">Cryptage des données sensibles</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="firewall_intrusion_protection">
+						<input type="checkbox" id="firewall_intrusion_protection" name="security_services" value="Protection intrusion pare-feu" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-fire-alt"></i>
+							</span>
+							<span class="checkbox-label">Pare-feu et protection contre les intrusions</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="access_rights_management">
+						<input type="checkbox" id="access_rights_management" name="security_services" value="Gestion des droits d'accès" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-user-lock"></i>
+							</span>
+							<span class="checkbox-label">Gestion des droits d'accès</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="regular_backups">
+						<input type="checkbox" id="regular_backups" name="security_services" value="Sauvegardes régulières" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-save"></i>
+							</span>
+							<span class="checkbox-label">Sauvegardes régulières</span>
+						</span>
+					</label>
+				</div>
+
+				<div class="checkbox">
+					<label class="checkbox-wrapper" for="unsure">
+						<input type="checkbox" id="unsure" name="security_services" value="Je ne sais pas" class="checkbox-input"/>
+						<span class="checkbox-tile">
+							<span class="checkbox-icon">
+								<i class="fas fa-question-circle"></i>
+							</span>
+							<span class="checkbox-label">Je ne sais pas</span>
+						</span>
+					</label>
+				</div>
+			</fieldset>
+
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+
+		<section id="questionSeven">
+			<h2 class="section-title">Budget et délai</h2>
+			<div class="contentContainer">
+				<div class="contentOne">
+					<label for="project_budget">Budget estimé pour le projet</label>
+					<input type="range" id="project_budget" name="project_budget" min="0" max="100000" step="250" value="50000" oninput="budgetOutput.value = project_budget.value" required>
+					<output id="budgetOutput">50000</output>
+				</div>
+				<div class="contentTwo">
+					<label for="date">Délai de livraison souhaité</label>
+					<input type="date" id="date" name="date">
+				</div>
+			</div>
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionEight">
+			<h2 class="section-title">Exemples</h2>
+			<h3 class="question-title">Avez-vous des exemples de sites web existants que vous aimez en termes de conception ou de fonctionnalités ?</h3>
+			<input type="text" id="website_examples" name="website_examples" class="form_input" placeholder="Exemples de sites web existants"/>
+			<label for="website_examples" class="form_label">Exemples de sites web existants</label>
+			<button class="next-button" type="button">Suivant</button>
+		</section>
+
+		<section id="questionNine">
+			<h2 class="section-title">Maintenance et support</h2>
+			<label for="support_pack" class="question-title">Choisissez un pack de support</label>
+			<select id="support_pack" name="support_pack">
+				<option value="Essentiel">Pack 1 : Essentiel</option>
+				<option value="Avancé">Pack 2 : Avancé</option>
+				<option value="Premium">Pack 3 : Premium</option>
+				<option value="Aucun">Je préfère me débrouiller seul(e)</option>
+			</select>
+			<div class="pack-container">
+				<div class="pack-card">
+					<h4>Pack 1 - Essentiel</h4>
+					<p>Une offre de maintenance et de support de base pour les sites web nécessitant un suivi minimal.</p>
+					<p>Services inclus :</p>
+					<ul>
+						<li>Mises à jour régulières du système de gestion de contenu (CMS) et des plugins.</li>
+						<li>Surveillance de base pour détecter les problèmes de disponibilité et les erreurs critiques.</li>
+						<li>Sauvegardes régulières du site web et de la base de données.</li>
+						<li>Support technique limité par e-mail ou ticket d'assistance.</li>
+					</ul>
+				</div>
+				<div class="pack-card">
+					<h4>Pack 2 - Avancé</h4>
+					<p>Une offre de maintenance et de support plus approfondie pour les sites web nécessitant une attention régulière.</p>
+					<p>Services inclus :</p>
+					<ul>
+						<li>Tous les services du "Pack 1: Essentiel", plus :</li>
+						<li>Surveillance proactive de la disponibilité, des performances et de la sécurité du site web.</li>
+						<li>Correction des erreurs non critiques et des problèmes de compatibilité.</li>
+						<li>Assistance étendue pour les utilisateurs du site web.</li>
+						<li>Temps de réponse plus rapide pour le support technique.</li>
+					</ul>
+				</div>
+				<div class="pack-card">
+					<h4>Pack 3 - Premium</h4>
+					<p>Une offre complète de maintenance et de support haut de gamme pour les sites web critiques nécessitant une attention constante.</p>
+					<p>Services inclus :</p>
+					<ul>
+						<li>Tous les services du "Pack 2: Avancé", plus :</li>
+						<li>Surveillance 24/7 de la disponibilité, des performances et de la sécurité du site web.</li>
+						<li>Réparation immédiate des erreurs critiques et des problèmes de sécurité.</li>
+						<li>Gestion proactive des mises à jour du CMS, des plugins et des technologies sous-jacentes.</li>
+						<li>Assistance prioritaire et personnalisée pour les utilisateurs du site web.</li>
+						<li>Rapports réguliers sur les statistiques, les performances et les activités de maintenance.</li>
+					</ul>
+				</div>
+			</div>
+			<input type="submit" class="submitBtn" value="Obtenez votre estimation">
+		</section>
+
+	</form>
+{% endblock %}
+
+{% block scripts %}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+	<script src="/js/estimate.js"></script>
+{% endblock %}

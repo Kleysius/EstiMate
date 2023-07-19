@@ -1,0 +1,33 @@
+{% extends "/base.twig" %}
+
+{% block title %}Accueil
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/home.css">
+	<link rel="stylesheet" href="/css/header.css">
+	<link rel="stylesheet" href="/css/radiusShape.css">
+	<link rel="stylesheet" href="/css/roots.css">
+{% endblock %}
+
+{% block header %}
+	{% include "/layouts/header.twig" %}
+{% endblock %}
+
+{% block content %}
+	<section class="hero">
+
+		<div class="hero-content">
+			<h1 class="hero-title"><img src="/img/estimatelogo-white.png" alt="logo"></h1>
+			<p class="hero-intro">Réalisez votre vision digitale. Découvrez le coût de votre projet.</p>
+			<a class="cta-button" href="/register">C'est parti !</a>
+			<div id="radius-shape"></div>
+			<div id="radius-shape-1"></div>
+		</div>
+
+	</section>
+{% endblock %}
+
+{% block footer %}
+	{% include "/layouts/footer.twig" %}
+{% endblock %}

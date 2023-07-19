@@ -1,0 +1,64 @@
+/* Global */
+body {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+main {
+    width: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 8%;
+    width: 100%;
+    min-height: calc(100vh - 138px);
+}
+
+/* Hero Section */
+.hero-content {
+    position: relative;
+    background-color: var(--bright-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(33, 33, 146, 0.8);
+}
+
+.hero-title img {
+    max-width: 400px;
+    margin-bottom: 20px;
+}
+
+.hero-intro {
+    font-family: Ubuntu, sans-serif;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    font-family: Hind Madurai, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    background-color: var(--orange);
+    color: var(--white);
+    border: none;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: var(--pink);
+    box-shadow: 0 0 10px rgba(146, 33, 46, 0.5);
+}
