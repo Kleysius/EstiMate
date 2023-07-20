@@ -129,6 +129,10 @@ main {
     cursor: pointer;
 }
 
+#openAvatarModal:hover {
+    background-color: #00000065;
+}
+
 /* Bouton de sauvegarde de la sélection */
 #saveAvatarSelection {
     display: block;
@@ -143,9 +147,8 @@ main {
 }
 
 #saveAvatarSelection:hover {
-    background-color: #45a049;
+    background-color: #df3800;
 }
-
 
 .input-field {
     margin-bottom: 15px;

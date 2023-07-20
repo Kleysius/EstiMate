@@ -150,13 +150,13 @@ body {
     top: 10px;
     left: 190px;
     right: 10px;
+    height: 65px;
     display: flex;
     border-radius: 40px;
     align-items: center;
     justify-content: space-between;
     padding: 10px 30px;
     background-color: var(--sidebar);
-    backdrop-filter: blur(20px);
     z-index: 1;
 }
 
@@ -178,7 +178,7 @@ body {
 }
 
 .app-icon img {
-    width: 35px;
+    width: 25px;
 }
 
 .account-info {
@@ -334,9 +334,9 @@ body {
     position: relative;
     max-width: 600px;
     background-color: var(--card);
-    backdrop-filter: blur(10px);
     border-radius: 10px;
     padding: 10px;
+    transition: all 0.2s ease;
 }
 
 .estimate-card:hover {
@@ -375,40 +375,43 @@ body {
 
 .estimate_action {
     position: absolute;
-    top: 2px;
-    right: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    top: 5px;
+    right: 8px;
 }
 
 .deleteEstimate {
     text-decoration: none;
+    color: var(--light-gray);
+    font-size: 1.3em;
+    transition: color 0.2s ease;
+}
+
+.deleteEstimate:hover {
     color: var(--pink);
-    font-size: 1.5em;
 }
 
 .estimate_email {
     position: absolute;
     top: 34px;
-    right: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    right: 70px;
     cursor: pointer;
 }
 
 .estimate_email i {
     font-size: 1.5em;
-    transition: scale 0.2s ease;
+    transition: transform 0.2s ease;
 }
 
 .estimate_email:hover i {
-    scale: 1.2;
+    transform: scale(1.2);
 }
 
 .email-base {
     color: maroon;
+}
+
+.email-base:hover {
+    color: var(--bright-blue);
 }
 
 .email-loader {
@@ -427,9 +430,6 @@ body {
     position: absolute;
     top: 60px;
     right: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     border-radius: 50%;
     background-color: var(--card);
     cursor: pointer;
@@ -439,6 +439,7 @@ body {
 .toggle-icon {
     font-size: 1.5em;
     color: var(--light-gray);
+    transition: all 0.2s ease;
 }
 
 .estimate-table {
@@ -488,7 +489,7 @@ body {
     padding: 20px;
     width: 80%;
     max-width: 500px;
-    background-color: #fff;
+    background-color: var(--white);
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -499,6 +500,8 @@ body {
 
 .delete-modal-btn {
     font-family: 'Hind Madurai', sans-serif;
+    font-size: 1em;
+    font-weight: bold;
     margin: 15px 10px 0 0;
     padding: 10px 20px;
     border: none;
@@ -510,9 +513,17 @@ body {
     background-color: #bbb;
 }
 
+#cancel:hover {
+    background-color: #ddd;
+}
+
 #confirm {
     background-color: #f44336;
     color: #fff;
+}
+
+#confirm:hover {
+    background-color: #da190b;
 }
 
 /* Compte Section */
@@ -605,7 +616,7 @@ body {
 /* Style du contenu de la modale */
 .modal-content {
     position: relative;
-    background-color: #fefefe;
+    background-color: var(--white);
     border-radius: 10px;
     margin: auto;
     padding: 20px;
@@ -672,9 +683,15 @@ body {
     font-size: 0.9em;
     background-color: #00000029;
     border-radius: 10px;
-    color: white;
+    color: var(--dark-gray);
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#openAvatarModal:hover {
+    background-color: #00000065;
+    color: var(--white);
 }
 
 /* Bouton de sauvegarde de la sélection */
@@ -688,10 +705,11 @@ body {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #saveAvatarSelection:hover {
-    background-color: #45a049;
+    background-color: #da190b;
 }
 
 .input-field {
@@ -736,7 +754,7 @@ body {
 #chat {
     display: flex;
     flex-direction: column;
-    max-height: 65vh;
+    max-height: 50vh;
     overflow-y: auto;
     padding: 15px 0;
     box-shadow: rgba(33, 35, 38, 0.1) inset 0px 10px 10px -10px, rgba(33, 35, 38, 0.1) inset 0px -10px 10px -10px;
@@ -759,10 +777,31 @@ body {
 }
 
 .bubble {
+    position: relative;
+    display: flex;
+    align-items: center;
     padding: 7px 14px;
-    border-radius: 20px;
+    border-radius: 25px;
     margin: 5px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.like {
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    background: url('../img/emojis/like.png') no-repeat center;
+    background-size: contain;
+    animation: pulse 0.3s ease-in-out;
+}
+
+.user-like {
+    right: auto;
+    left: 0;
 }
 
 .sent {
@@ -775,7 +814,7 @@ body {
 }
 
 .sent .bubble p {
-    color: white;
+    color: var(--white);
 }
 
 .received {
@@ -806,6 +845,7 @@ body {
     cursor: pointer;
     padding: 10px;
     outline: none;
+    transition: color 0.2s ease;
 }
 
 #send-message button:hover {
@@ -816,29 +856,33 @@ body {
     display: flex;
     align-items: center;
     flex-grow: 1;
-    padding: 10px;
-    border-radius: 20px;
+    padding: 10px 15px;
+    border-radius: 25px;
     border: 1px solid var(--light-gray);
-    background-color: white;
+    background-color: var(--white);
     cursor: pointer;
+    transition: border-color 0.2s ease;
 }
 
 .message-input-container:hover {
     border-color: #0072dd;
 }
 
-.message-input-container .fa-face-smile {
-    margin-right: 15px;
-    color: #0072dd;
-    font-size: 20px;
+.message-input-container img {
+    width: 25px;
+}
+
+.message.sent .bubble #smiley {
+    width: 30px;
 }
 
 #message-input {
     font-family: 'Hind Madurai', sans-serif;
+    font-size: 1em;
     flex-grow: 1;
+    margin-left: 10px;
     border: none;
     outline: none;
-    background-color: transparent;
     background: none;
 }
 
@@ -848,9 +892,51 @@ body {
     font-style: italic;
 }
 
+.emoji-picker {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#emoji-menu {
+    display: none;
+    position: absolute;
+    bottom: 35px;
+    left: -20px;
+    background-color: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.emoji {
+    cursor: pointer;
+    margin: 5px;
+    width: 25px;
+    transition: transform 0.2s ease;
+}
+
+.emoji:hover {
+    transform: scale(1.4);
+}
+
 /* Contact Section */
 #contact-section {
     flex-direction: column;
     flex-wrap: wrap;
     gap: 20px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.8);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
