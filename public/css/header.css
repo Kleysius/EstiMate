@@ -45,6 +45,7 @@ header nav ul li {
     font-weight: bold;
     font-size: 1rem;
     background-image: linear-gradient(45deg, var(--base) 25%, var(--complimentary2));
+    background-color: var(--bright-blue);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
     border-radius: 10px;
@@ -75,7 +76,6 @@ footer {
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 0;
 }
 
 #footer-nav ul li {
@@ -85,7 +85,7 @@ footer {
 #footer-nav ul li a {
     color: var(--bright-blue);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 1em;
     transition: color 0.3s ease;
 }
 
@@ -104,7 +104,7 @@ footer {
 }
 
 #social-icons a i {
-    font-size: 1.5rem;
+    font-size: 1.5em;
     transition: transform 0.2s ease;
 }
 
@@ -130,7 +130,6 @@ footer {
 
 #copyright {
     text-align: center;
-    font-weight: bold;
-    letter-spacing: 2px;
-    font-size: 0.8em;
+    letter-spacing: 1px;
+    font-size: 0.9em;
 }

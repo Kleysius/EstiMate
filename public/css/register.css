@@ -6,24 +6,25 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    overflow-x: hidden;
 }
 
 main {
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .register-explanation {
     font-family: 'Hind Madurai', sans-serif;
     text-align: center;
     max-width: 600px;
-    margin: 0 auto;
+    margin: auto;
     background-color: #3a456b38;
     backdrop-filter: blur(20px);
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    margin-top: 20px;
     padding: 20px;
-    z-index: 10;
 }
 
 .register-explanation h1 {
@@ -40,9 +41,10 @@ main {
 }
 
 .container {
+    flex: 1;
     position: relative;
     max-width: 500px;
-    margin: 50px auto;
+    margin: auto;
     z-index: 1;
 }
 
