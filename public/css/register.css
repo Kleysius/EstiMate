@@ -10,11 +10,39 @@ body {
 
 main {
     width: 100%;
-    max-width: 500px;
+}
+
+.register-explanation {
+    font-family: 'Hind Madurai', sans-serif;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #3a456b38;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    z-index: 10;
+}
+
+.register-explanation h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--orange);
+    margin-bottom: 20px;
+}
+
+.register-explanation p {
+    font-size: 1em;
+    color: var(--white);
+    line-height: 1.8em;
+    margin-bottom: 20px;
 }
 
 .container {
     position: relative;
+    max-width: 500px;
+    margin: 50px auto;
     z-index: 1;
 }
 
@@ -31,6 +59,7 @@ main {
     backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     border-radius: 10px;
+    margin-top: 20px;
     padding: 20px;
 }
 
@@ -105,6 +134,11 @@ main {
     aspect-ratio: 1/1;
     object-fit: cover;
     cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.avatar-option img:hover {
+    transform: scale(1.1);
 }
 
 .input-img {
@@ -166,7 +200,7 @@ main {
     background-color: transparent;
     border-radius: 10px;
     border: none;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    box-shadow: rgba(50, 50, 93, 0.2) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.2) 0px 18px 36px -18px inset;
     color: var(--white);
     width: 100%;
     padding: 10px;
@@ -224,7 +258,7 @@ main {
 }
 
 .submit-button input:hover {
-    background-color: #df3800;
+    background-color: var(--pink);
 }
 
 .login-link {

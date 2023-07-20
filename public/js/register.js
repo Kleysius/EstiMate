@@ -39,3 +39,27 @@ saveButton.onclick = function () {
     }
     modal.style.display = "none";
 }
+
+ScrollReveal().reveal('.register-explanation h1', {
+    delay: 100,
+    duration: 1000,
+    origin: 'bottom',
+    distance: '50px',
+    reset: true
+});
+
+ScrollReveal().reveal('.register-explanation p', {
+    delay: 500,
+    duration: 1000,
+    origin: 'left',
+    distance: '100px',
+    reset: true
+});
+
+ScrollReveal().reveal('.container', {
+    delay: 1000,
+    duration: 1000,
+    origin: 'right',
+    distance: '100px',
+    reset: true
+});

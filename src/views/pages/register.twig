@@ -14,26 +14,16 @@
 {% endblock %}
 
 {% block content %}
-	<div id="avatarModal" class="modal">
-		<div class="modal-content">
-			<span id="closeAvatarModal" class="close">&times;</span>
-			<div class="avatar-selection">
-				{% for avatar in avatars %}
-					<div class="avatar-option">
-						<input type="radio" id="{{ avatar }}" name="avatarOption" value="{{ avatar }}">
-						<label for="{{ avatar }}">
-							<img src="{{ avatar }}" alt="Avatar option">
-						</label>
-					</div>
-				{% endfor %}
-			</div>
-			<button id="saveAvatarSelection">Sauvegarder la sélection</button>
-		</div>
+	<div class="register-explanation">
+		<h1>Pourquoi s'inscrire ?</h1>
+		<p>En créant un compte, vous aurez accès à de nombreux avantages. Vous pourrez retrouver toutes vos estimations sur votre tableau de bord, les recevoir par email, et discuter avec des freelances directement depuis notre plateforme.</p>
+		<p>Notre objectif est de rendre votre expérience de développement de projet la plus fluide possible. Rejoignez-nous dès aujourd'hui et donnons vie à votre projet !</p>
 	</div>
-	
+
 	<div class="container">
 		<div id="radius-shape-2"></div>
 		<div id="radius-shape-3"></div>
+
 		<form action="/register" method="post" class="register-form">
 			<h1 class='register-title'>Inscription</h1>
 
@@ -105,6 +95,23 @@
 
 		</form>
 	</div>
+
+	<div id="avatarModal" class="modal">
+		<div class="modal-content">
+			<span id="closeAvatarModal" class="close">&times;</span>
+			<div class="avatar-selection">
+				{% for avatar in avatars %}
+					<div class="avatar-option">
+						<input type="radio" id="{{ avatar }}" name="avatarOption" value="{{ avatar }}">
+						<label for="{{ avatar }}">
+							<img src="{{ avatar }}" alt="Avatar option">
+						</label>
+					</div>
+				{% endfor %}
+			</div>
+			<button id="saveAvatarSelection">Sauvegarder la sélection</button>
+		</div>
+	</div>
 {% endblock %}
 
 {% block footer %}
@@ -112,5 +119,6 @@
 {% endblock %}
 
 {% block scripts %}
+	<script src="https://unpkg.com/scrollreveal"></script>
 	<script src="/js/register.js"></script>
 {% endblock %}

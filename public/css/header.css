@@ -1,9 +1,10 @@
 /* Header */
 header {
     font-family: Montserrat, sans-serif;
-    background-color: none;
     padding: 10px 8%;
     width: 100%;
+    background: rgba(255, 255, 255, 0.375);
+    box-shadow: 0 0 30px -10px rgba(76, 76, 87, 0.8);
 }
 
 header nav {
@@ -31,6 +32,7 @@ header nav a img {
 
 header nav ul {
     display: flex;
+    align-items: center;
     list-style-type: none;
 }
 
@@ -39,33 +41,96 @@ header nav ul li {
 }
 
 .btn {
-    font-family: Montserrat, sans-serif;
+    display: inline-block;
     font-weight: bold;
     font-size: 1rem;
-    background-color: var(--bright-blue);
+    background-image: linear-gradient(45deg, var(--base) 25%, var(--complimentary2));
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
     border-radius: 10px;
     color: var(--white);
     padding: 10px 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
+    transition: transform 150ms ease;
 }
 
 .btn:hover {
-    background-color: #311dc5;
+    transform: scale(1.1);
     color: var(--white);
 }
 
 /* Footer */
 footer {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
     padding: 20px 8%;
     font-family: Hind Madurai, sans-serif;
+    background: rgba(255, 255, 255, 0.375);
     color: var(--bright-blue);
-    font-size: 1em;
-    font-weight: bold;
     width: 100%;
+    box-shadow: 0 0 30px -10px rgba(76, 76, 87, 0.8);
+}
+
+#footer-nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+
+#footer-nav ul li {
+    margin: 0 15px;
+}
+
+#footer-nav ul li a {
+    color: var(--bright-blue);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+#footer-nav ul li a:hover {
+    color: var(--orange);
+}
+
+#social-icons {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#social-icons a {
+    margin: 0 15px;
+}
+
+#social-icons a i {
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+#social-icons a i:hover {
+    transform: translateY(-5px);
+}
+
+#social-icons .fa-twitter {
+    color: #1da1f2;
+}
+
+#social-icons .fa-facebook {
+    color: #3b5998;
+}
+
+#social-icons .fa-linkedin-in {
+    color: #0077b5;
+}
+
+#social-icons .fa-instagram {
+    color: #e4405f;
+}
+
+#copyright {
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8em;
 }
