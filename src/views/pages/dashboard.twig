@@ -1,17 +1,16 @@
 {% extends "/base.twig" %}
 
-{% block title %}Tableau de bord
+{% block title %}
+	Tableau de bord
 {% endblock %}
 
 {% block styles %}
 	<link rel="stylesheet" href="/css/dashboard.css">
-	<link rel="stylesheet" href="/css/roots.css">
-	<link rel="stylesheet" href="/css/radiusShape.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 {% endblock %}
 
 {% block content %}
-	<div id="radius-shape-5"></div>
+	<div id="radius-shape-3"></div>
 
 	<div class="sidebar">
 		<div class="account-info">
@@ -150,247 +149,252 @@
 							<i class="fas fa-plus-circle toggle-icon"></i>
 						</div>
 
-						<table class="estimate-table">
-							<tr>
-								<th>Description</th>
-								<th>Valeur</th>
-							</tr>
-							<tr>
-								<td>Type de site web</td>
-								<td>{{ estimate.website_type|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Maquette/Design</td>
-								<td>{{ estimate.mockup|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Conception graphique</td>
-								<td>{{ estimate.graphic_design|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Personnalisation</td>
-								<td>{{ estimate.customization|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Contenu</td>
-								<td>{{ estimate.content|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Nombre de pages</td>
-								<td>{{ estimate.page_number }}</td>
-							</tr>
-							<tr>
-								<td>Pages spéciales</td>
-								<td>{{ estimate.special_pages|join(', ') }}</td>
-							</tr>
-							<tr>
-								<td>Multilingue</td>
-								<td>{{ estimate.multilingual|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Nombre de langues</td>
-								<td>{{ estimate.language_count }}</td>
-							</tr>
-							<tr>
-								<td>Conversion de devise</td>
-								<td>{{ estimate.currency_conversion|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Contenu basé sur la localisation</td>
-								<td>{{ estimate.location_based_content|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Services tiers</td>
-								<td>{{ estimate.third_party_services|join(', ') }}</td>
-							</tr>
-							<tr>
-								<td>Authentification utilisateur</td>
-								<td>{{ estimate.user_auth|capitalize }}</td>
-							</tr>
-							<tr>
-								<td>Services de sécurité</td>
-								<td>{{ estimate.security_services|join(', ') }}</td>
-							</tr>
-							<tr>
-								<td>Budget du projet</td>
-								<td>{{ estimate.project_budget }}€</td>
-							</tr>
-							<tr>
-								<td>Date de livraison</td>
-								<td>{{ estimate.date|date('d-m-Y') }}</td>
-							</tr>
-							<tr>
-								<td>Exemples de site web</td>
-								<td>{{ estimate.website_examples }}</td>
-							</tr>
-							<tr>
-								<td>Pack de support</td>
-								<td>{{ estimate.support_pack|capitalize }}</td>
-							</tr>
-						</table>
+						<div class="table-container">
+							<table class="estimate-table">
+								<tr>
+									<th>Description</th>
+									<th>Valeur</th>
+								</tr>
+								<tr>
+									<td>Type de site web</td>
+									<td>{{ estimate.website_type|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Maquette/Design</td>
+									<td>{{ estimate.mockup|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Conception graphique</td>
+									<td>{{ estimate.graphic_design|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Personnalisation</td>
+									<td>{{ estimate.customization|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Contenu</td>
+									<td>{{ estimate.content|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Nombre de pages</td>
+									<td>{{ estimate.page_number }}</td>
+								</tr>
+								<tr>
+									<td>Pages spéciales</td>
+									<td>{{ estimate.special_pages|join(', ') }}</td>
+								</tr>
+								<tr>
+									<td>Multilingue</td>
+									<td>{{ estimate.multilingual|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Nombre de langues</td>
+									<td>{{ estimate.language_count }}</td>
+								</tr>
+								<tr>
+									<td>Conversion de devise</td>
+									<td>{{ estimate.currency_conversion|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Contenu basé sur la localisation</td>
+									<td>{{ estimate.location_based_content|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Services tiers</td>
+									<td>{{ estimate.third_party_services|join(', ') }}</td>
+								</tr>
+								<tr>
+									<td>Authentification utilisateur</td>
+									<td>{{ estimate.user_auth|capitalize }}</td>
+								</tr>
+								<tr>
+									<td>Services de sécurité</td>
+									<td>{{ estimate.security_services|join(', ') }}</td>
+								</tr>
+								<tr>
+									<td>Budget du projet</td>
+									<td>{{ estimate.project_budget }}€</td>
+								</tr>
+								<tr>
+									<td>Date de livraison</td>
+									<td>{{ estimate.date|date('d-m-Y') }}</td>
+								</tr>
+								<tr>
+									<td>Exemples de site web</td>
+									<td>{{ estimate.website_examples }}</td>
+								</tr>
+								<tr>
+									<td>Pack de support</td>
+									<td>{{ estimate.support_pack|capitalize }}</td>
+								</tr>
+							</table>
+						</div>
 					</div>
 
-				{% endfor %}
-			{% else %}
+					{% endfor %}
+				{% else %}
+					<div class="card">
+						<p>Pas d'estimation trouvée. Veuillez commencer par créer une nouvelle estimation.</p>
+						<a href="/estimate" class="new-estimate-btn">Nouvelle estimation</a>
+					</div>
+				{% endif %}
+			</section>
+
+			{# Mon compte #}
+			<section class="content-section" id="account-section">
+
+				<div id="avatarModal" class="modal">
+					<div class="modal-content">
+						<span id="closeAvatarModal" class="close">&times;</span>
+						<div class="avatar-selection">
+							{% for avatar in avatars %}
+								<div class="avatar-option">
+									<input type="radio" id="{{ avatar }}" name="avatarOption" value="{{ avatar }}">
+									<label for="{{ avatar }}">
+										<img src="{{ avatar }}" alt="Avatar option">
+									</label>
+								</div>
+							{% endfor %}
+						</div>
+						<button id="saveAvatarSelection">Sauvegarder la sélection</button>
+					</div>
+				</div>
+
 				<div class="card">
-					<p>Pas d'estimation trouvée. Veuillez commencer par créer une nouvelle estimation.</p>
-					<a href="/estimate" class="new-estimate-btn">Nouvelle estimation</a>
-				</div>
-			{% endif %}
-		</section>
-
-		{# Mon compte #}
-		<section class="content-section" id="account-section">
-
-			<div id="avatarModal" class="modal">
-				<div class="modal-content">
-					<span id="closeAvatarModal" class="close">&times;</span>
-					<div class="avatar-selection">
-						{% for avatar in avatars %}
-							<div class="avatar-option">
-								<input type="radio" id="{{ avatar }}" name="avatarOption" value="{{ avatar }}">
-								<label for="{{ avatar }}">
-									<img src="{{ avatar }}" alt="Avatar option">
-								</label>
-							</div>
-						{% endfor %}
-					</div>
-					<button id="saveAvatarSelection">Sauvegarder la sélection</button>
-				</div>
-			</div>
-
-			<div class="card">
-				<h2>Modifier mes informations</h2>
-				<form class="form" action="/update_account/{{ user._id }}" method="post">
-					<div class="form-field">
-						<label class="form-label" for="name">Nom :</label>
-						<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
-					</div>
-
-					<div class="form-field">
-						<label class="form-label" for="firstname">Prénom :</label>
-						<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
-					</div>
-
-					<div class="form-field">
-						<label class="form-label" for="email">Email :</label>
-						<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
-					</div>
-
-					<div class="input-field">
-						<input type="hidden" id="selectedAvatar" name="avatar" required>
-						<div class="input-img">
-							{% if user.avatar %}
-								<img src="{{ user.avatar }}" alt="Avatar" class="avatar-preview">
-							{% else %}
-								<img src="avatars/unknown.svg" alt="Avatar" class="avatar-preview">
-							{% endif %}
-							<button id="openAvatarModal">Choisir un autre avatar</button>
+					<h2>Modifier mes informations</h2>
+					<form class="form" action="/update_account/{{ user._id }}" method="post">
+						<div class="form-field">
+							<label class="form-label" for="name">Nom :</label>
+							<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
 						</div>
-					</div>
 
-					<input class="form-submit" type="submit" value="Mettre à jour">
-				</form>
-			</div>
-
-		</section>
-
-		{# Messagerie #}
-		<section class="content-section" id="messagerie-section">
-
-			<div class="card messagerie">
-				<h2>Messagerie</h2>
-
-				<div id="chat">
-					<div class="message received">
-						<img src="img/freelance-user.jpg" alt="Freelancer avatar" class="message-avatar">
-						<div class="bubble">
-							<p>Bonjour, je suis le freelance assigné à votre projet. J'ai reçu votre estimation et je suis prêt à commencer le travail. Avez-vous des questions ou des préoccupations supplémentaires ?</p>
+						<div class="form-field">
+							<label class="form-label" for="firstname">Prénom :</label>
+							<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
 						</div>
-					</div>
-					<!-- Les autres messages seront ajoutés ici -->
-					<input type="hidden" id="userAvatarUrl" value="{{ user.avatar }}">
-				</div>
 
-				<form id="send-message">
-					<div class="message-input-container">
-						<div class="emoji-picker">
-							<img src="img/emojis/smiling-face.png" id="smiley" alt="smiley">
-							<div id="emoji-menu" style="display: none;">
-								<img src="img/emojis/smiling-face.png" class="emoji" alt="smiling">
-								<img src="img/emojis/emoji-2.png" class="emoji" alt="emoji-2">
-								<img src="img/emojis/emoji-3.png" class="emoji" alt="emoji-3">
-								<img src="img/emojis/emoji-4.png" class="emoji" alt="emoji-4">
-								<img src="img/emojis/emoji-5.png" class="emoji" alt="emoji-5">
-								<img src="img/emojis/emoji-6.png" class="emoji" alt="emoji-6">
-								<img src="img/emojis/emoji-7.png" class="emoji" alt="emoji-7">
-								<img src="img/emojis/emoji-8.png" class="emoji" alt="emoji-8">
-								<img src="img/emojis/emoji-9.png" class="emoji" alt="emoji-9">
-								<img src="img/emojis/emoji-10.png" class="emoji" alt="emoji-10">
-								<img src="img/emojis/emoji-11.png" class="emoji" alt="emoji-11">
-								<img src="img/emojis/emoji-12.png" class="emoji" alt="emoji-12">
-								<img src="img/emojis/like.png" class="emoji" alt="heart">
+						<div class="form-field">
+							<label class="form-label" for="email">Email :</label>
+							<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
+						</div>
+
+						<div class="input-field">
+							<input type="hidden" id="selectedAvatar" name="avatar" required>
+							<div class="input-img">
+								{% if user.avatar %}
+									<img src="{{ user.avatar }}" alt="Avatar" class="avatar-preview">
+								{% else %}
+									<img src="avatars/unknown.svg" alt="Avatar" class="avatar-preview">
+								{% endif %}
+								<button id="openAvatarModal">Choisir un autre avatar</button>
 							</div>
 						</div>
-						<input type="text" id="message-input" placeholder="Écrivez un message ...">
-					</div>
-					<button type="submit">
-						<i class="fa-solid fa-paper-plane"></i>
-					</button>
-				</form>
 
-			</div>
-		</section>
+						<input class="form-submit" type="submit" value="Mettre à jour">
+					</form>
+				</div>
 
-		{# Contact section #}
-		<section class="content-section" id="contact-section">
-			<div class="card">
-				<h2>Contact</h2>
-				<p>Vous pouvez nous contacter par e-mail à l'adresse suivante :</p>
-				<p>contact@estimate.fr</p>
-				<p>Ou en remplissant le formulaire ci-dessous</p>
-			</div>
-			<div class="card">
-				<form class="form" action="/contact" method="post">
-					<div class="form-field">
-						<label class="form-label" for="name">Nom :</label>
-						<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
-					</div>
+			</section>
 
-					<div class="form-field">
-						<label class="form-label" for="firstname">Prénom :</label>
-						<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
+			{# Messagerie #}
+			<section class="content-section" id="messagerie-section">
+
+				<div class="card messagerie">
+					<h2>Messagerie</h2>
+
+					<div id="chat">
+						<div class="message received">
+							<img src="img/freelance-user.jpg" alt="Freelancer avatar" class="message-avatar">
+							<div class="bubble">
+								<p>Bonjour, je suis le freelance assigné à votre projet. J'ai reçu votre estimation et je suis prêt à commencer le travail. Avez-vous des questions ou des préoccupations supplémentaires ?</p>
+							</div>
+						</div>
+						<!-- Les autres messages seront ajoutés ici -->
+						<input type="hidden" id="userAvatarUrl" value="{{ user.avatar }}">
 					</div>
 
-					<div class="form-field">
-						<label class="form-label" for="email">E-mail :</label>
-						<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
-					</div>
+					<form id="send-message">
+						<div class="message-input-container">
+							<div class="emoji-picker">
+								<img src="img/emojis/smiling-face.png" id="smiley" alt="smiley">
+								<div id="emoji-menu" style="display: none;">
+									<img src="img/emojis/smiling-face.png" class="emoji" alt="smiling">
+									<img src="img/emojis/emoji-2.png" class="emoji" alt="emoji-2">
+									<img src="img/emojis/emoji-3.png" class="emoji" alt="emoji-3">
+									<img src="img/emojis/emoji-4.png" class="emoji" alt="emoji-4">
+									<img src="img/emojis/emoji-5.png" class="emoji" alt="emoji-5">
+									<img src="img/emojis/emoji-6.png" class="emoji" alt="emoji-6">
+									<img src="img/emojis/emoji-7.png" class="emoji" alt="emoji-7">
+									<img src="img/emojis/emoji-8.png" class="emoji" alt="emoji-8">
+									<img src="img/emojis/emoji-9.png" class="emoji" alt="emoji-9">
+									<img src="img/emojis/emoji-10.png" class="emoji" alt="emoji-10">
+									<img src="img/emojis/emoji-11.png" class="emoji" alt="emoji-11">
+									<img src="img/emojis/emoji-12.png" class="emoji" alt="emoji-12">
+									<img src="img/emojis/like.png" class="emoji" alt="heart">
+								</div>
+							</div>
+							<input type="text" id="message-input" placeholder="Écrivez un message ...">
+						</div>
+						<button type="submit">
+							<i class="fa-solid fa-paper-plane"></i>
+						</button>
+					</form>
 
-					<div class="form-field">
-						<label class="form-label" for="message">Message :</label>
-						<textarea class="form-input" id="message" name="message" required></textarea>
-					</div>
+				</div>
+			</section>
 
-					<div class="form-field">
-						<input class="form-submit" type="submit" value="Envoyer">
-					</div>
-				</form>
-			</div>
-		</section>
-	</div>
-</div>
+			{# Contact section #}
+			<section class="content-section" id="contact-section">
+				<div class="card">
+					<h2>Contact</h2>
+					<p>Vous pouvez nous contacter par e-mail à l'adresse suivante :</p>
+					<p>contact@estimate.fr</p>
+					<p>Ou en remplissant le formulaire ci-dessous</p>
+				</div>
+				<div class="card">
+					<form class="form" action="/contact" method="post">
+						<div class="form-field">
+							<label class="form-label" for="name">Nom :</label>
+							<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
+						</div>
 
-<div id="deleteModal" class="deleteModal">
-	<div class="delete-modal-content">
-		<h2>Confirmation</h2>
-		<p>Êtes-vous sûr de vouloir supprimer cette estimation ?</p>
-		<div class="delete-modal-buttons">
-			<button id="cancel" class="delete-modal-btn">Annuler</button>
-			<button id="confirm" class="delete-modal-btn">Confirmer</button>
+						<div class="form-field">
+							<label class="form-label" for="firstname">Prénom :</label>
+							<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
+						</div>
+
+						<div class="form-field">
+							<label class="form-label" for="email">E-mail :</label>
+							<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
+						</div>
+
+						<div class="form-field">
+							<label class="form-label" for="message">Message :</label>
+							<textarea class="form-input" id="message" name="message" required></textarea>
+						</div>
+
+						<div class="form-field">
+							<input class="form-submit" type="submit" value="Envoyer">
+						</div>
+					</form>
+				</div>
+			</section>
 		</div>
 	</div>
-</div>{% endblock %}{% block scripts %}
-<script src="/js/dashboard.js"></script>
-<script src="/js/register.js"></script>
-<script src="/js/chart.js"></script>{% endblock %}
+
+	<div id="deleteModal" class="deleteModal">
+		<div class="delete-modal-content">
+			<h2>Confirmation</h2>
+			<p>Êtes-vous sûr de vouloir supprimer cette estimation ?</p>
+			<div class="delete-modal-buttons">
+				<button id="cancel" class="delete-modal-btn">Annuler</button>
+				<button id="confirm" class="delete-modal-btn">Confirmer</button>
+			</div>
+		</div>
+	</div>
+{% endblock %}
+{% block scripts %}
+	<script src="/js/dashboard.js"></script>
+	<script src="/js/authentication.js"></script>
+	<script src="/js/chart.js"></script>
+{% endblock %}

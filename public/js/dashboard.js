@@ -38,28 +38,25 @@ document.querySelectorAll('#account-button').forEach(button => {
     });
 });
 
-const toggles = document.getElementsByClassName("toggle-icon");
+const toggles = document.getElementsByClassName("toggle");
 
 for (let i = 0; i < toggles.length; i++) {
-    const table = toggles[i].parentNode.nextElementSibling;
+    const tableContainer = toggles[i].nextElementSibling;
+    const toggleIcon = toggles[i].querySelector(".toggle-icon");
 
-    // C'est pour éviter de cliquer deux fois sur le bouton pour afficher le tableau
-    if (table.style.display === "flex") {
-        table.style.display = "flex";
-    } else {
-        table.style.display = "none";
-    }
+    // éviter de cliquer deux fois sur le bouton pour afficher le tableau
+    tableContainer.style.maxHeight = "0px";
 
-    // Quand l'utilisateur clique sur le bouton, affiche ou cache le tableau et change l'icône
     toggles[i].addEventListener("click", function () {
-        if (table.style.display === "none") {
-            table.style.display = "flex";
-            this.classList.remove('fa-plus-circle');
-            this.classList.add('fa-minus-circle');
+        if (tableContainer.style.maxHeight === "0px") {
+            const tableContainerHeight = tableContainer.scrollHeight + "px";
+            tableContainer.style.maxHeight = tableContainerHeight;
+            toggleIcon.classList.remove('fa-plus-circle');
+            toggleIcon.classList.add('fa-minus-circle');
         } else {
-            table.style.display = "none";
-            this.classList.add('fa-plus-circle');
-            this.classList.remove('fa-minus-circle');
+            tableContainer.style.maxHeight = "0px";
+            toggleIcon.classList.add('fa-plus-circle');
+            toggleIcon.classList.remove('fa-minus-circle');
         }
     });
 }
@@ -109,11 +106,9 @@ function scrollToBottom() {
     chat.scrollTop = chat.scrollHeight;
 }
 
-document.addEventListener('DOMContentLoaded', (event) => {
-    // Ajoute la fonction de like au premier message
-    const firstMessage = document.querySelector('.message.received');
-    addLike(firstMessage);
-});
+// Ajoute la fonction de like au premier message
+const firstMessage = document.querySelector('.message.received');
+addLike(firstMessage);
 
 let autoMessages = [
     "Merci pour votre message. Je suis en train d'y jeter un œil.",

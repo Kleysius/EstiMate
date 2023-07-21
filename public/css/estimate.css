@@ -4,6 +4,7 @@ body {
     justify-content: space-between;
     flex-direction: column;
     align-items: center;
+    background-color: #f8f7ff;
     min-height: 100vh;
     overflow: hidden;
 }
@@ -215,6 +216,7 @@ form {
     height: 5rem;
     width: 5rem;
     font-family: Hind Madurai, sans-serif;
+    background-color: var(--white);
     color: var(--dark-gray);
     border: 2px solid var(--light-gray);
     font-size: 1rem;

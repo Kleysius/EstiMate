@@ -3,10 +3,9 @@
 {% block title %}Inscription
 {% endblock %}
 
-{% block styles %}<link rel="stylesheet" href="/css/register.css">
-	<link rel="stylesheet" href="/css/radiusShape.css">
-	<link rel="stylesheet" href="/css/header.css">
-	<link rel="stylesheet" href="/css/roots.css">
+{% block styles %}
+	<link rel="stylesheet" href="/css/authentication.css">
+	<link rel="stylesheet" href="/css/headerFooter.css">
 {% endblock %}
 
 {% block header %}
@@ -14,15 +13,16 @@
 {% endblock %}
 
 {% block content %}
+	<div id="radius-shape-1"></div>
+	<div id="radius-shape-2"></div>
+
 	<div class="register-explanation">
 		<h1>Pourquoi s'inscrire ?</h1>
-		<p>En créant un compte, vous aurez accès à de nombreux avantages. Vous pourrez retrouver toutes vos estimations sur votre tableau de bord, les recevoir par email, et discuter avec des freelances directement depuis notre plateforme.</p>
-		<p>Notre objectif est de rendre votre expérience de développement de projet la plus fluide possible. Rejoignez-nous dès aujourd'hui et donnons vie à votre projet !</p>
+		<p>En créant un compte, vous aurez accès à de nombreux avantages. Vous pourrez retrouver toutes vos estimations sur votre tableau de bord, les recevoir par email, et discuter avec des freelances directement depuis notre plateforme.<br>
+			<br>Notre objectif est de rendre votre expérience de développement de projet la plus fluide possible. Rejoignez-nous dès aujourd'hui et donnons vie à votre projet !</p>
 	</div>
 
 	<div class="container">
-		<div id="radius-shape-2"></div>
-		<div id="radius-shape-3"></div>
 
 		<form action="/register" method="post" class="register-form">
 			<h1 class='register-title'>Inscription</h1>
@@ -119,6 +119,5 @@
 {% endblock %}
 
 {% block scripts %}
-	<script src="https://unpkg.com/scrollreveal"></script>
-	<script src="/js/register.js"></script>
+	<script src="/js/authentication.js"></script>
 {% endblock %}

@@ -1,12 +1,11 @@
 {% extends "/base.twig" %}
 
-{% block title %}Contact
+{% block title %}
+	Contact
 {% endblock %}
 
 {% block styles %}
-	<link rel="stylesheet" href="/css/header.css">
-	<link rel="stylesheet" href="/css/radiusShape.css">
-	<link rel="stylesheet" href="/css/roots.css">
+	<link rel="stylesheet" href="/css/headerFooter.css">
 {% endblock %}
 
 {% block header %}
@@ -14,5 +13,23 @@
 {% endblock %}
 
 {% block content %}
+	<div id="radius-shape-1"></div>
+	<div id="radius-shape-2"></div>
+	
+	<div class="container">
+		<div class="content">
+			<div class="content-contact">
+				<h1>Contact</h1>
+				<p>Vous pouvez nous contacter par mail à l'adresse suivante : <a href="mailto:contact@estimate.fr">contact@estimate.fr</a></p>
+			</div>
+		</div>
+	</div>
+{% endblock %}
 
+{% block footer %}
+	{% include "/layouts/footer.twig" %}
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/header.js"></script>
 {% endblock %}

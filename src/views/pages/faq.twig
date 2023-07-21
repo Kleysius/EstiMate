@@ -1,0 +1,83 @@
+{% extends "/base.twig" %}
+
+{% block title %}
+	F.A.Q.
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/aboutFaq.css">
+	<link rel="stylesheet" href="/css/headerFooter.css">
+{% endblock %}
+
+{% block header %}
+	{% include "/layouts/header.twig" %}
+{% endblock %}
+
+{% block content %}
+	<div id="radius-shape-1"></div>
+	<div id="radius-shape-2"></div>
+
+	<div class="faq-content">
+		<div class="faq">
+			<h2 class="content-header">FAQ</h2>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Comment l'estimation est-elle calculée ?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">L'estimation est calculée en fonction des réponses fournies dans le formulaire. Les facteurs tels que le type de site, la complexité du design, les fonctionnalités nécessaires et d'autres éléments sont pris en compte pour fournir une estimation du coût d'un projet réalisé par un développeur freelance.</p>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Est-ce que l'estimation est exacte ?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">L'estimation fournie est approximative et est destinée à donner une idée générale du coût d'un projet. Le coût réel peut varier en fonction de divers facteurs, tels que le taux horaire du développeur, les frais supplémentaires pour des fonctionnalités spécifiques, et plus encore.</p>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Que se passe-t-il après avoir reçu une estimation ?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">Une fois que vous avez une idée du coût de votre projet, vous pouvez commencer à chercher un développeur freelance en fonction de votre budget. L'estimation fournie par notre site vous aidera à avoir des discussions plus informées sur le coût avec les développeurs potentiels.</p>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Comment puis-je entrer en contact avec un freelance?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">Une fois votre estimation réalisée, vous pourrez depuis votre tableau de bord entrer en contact avec un freelance. Nous avons mis en place cette fonctionnalité pour faciliter les échanges et assurer une transition fluide de l'estimation à la mise en œuvre de votre projet.</p>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Dois-je payer pour utiliser le service d'estimation ?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">Non, l'utilisation de notre outil d'estimation est entièrement gratuite. Notre objectif est d'aider les clients potentiels à avoir une idée approximative du coût de leur projet avant d'engager un développeur freelance.</p>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Quels types de projets puis-je estimer sur ce site ?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">Vous pouvez utiliser notre outil d'estimation pour obtenir une estimation approximative du coût de tout type de site web - que ce soit un site e-commerce, un site vitrine, un blog, etc. - réalisé par un développeur freelance.</p>
+			</div>
+			<div class="faq-item">
+				<div class="faq-question">
+					<span class="faq-question-text">Le site propose-t-il une liste de freelances recommandés ?</span>
+					<i class="faq-chevron fas fa-chevron-left"></i>
+				</div>
+				<p class="faq-answer">Non, notre site se concentre sur la fourniture d'estimations pour les projets de sites web réalisés par des freelances. Cependant, une fois votre estimation réalisée, nous vous permettons d'entrer en contact avec un freelance via votre tableau de bord.</p>
+			</div>
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block footer %}
+	{% include "/layouts/footer.twig" %}
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/aboutFaq.js"></script>
+{% endblock %}

@@ -1,12 +1,12 @@
 {% extends "/base.twig" %}
 
-{% block title %}Connexion
+{% block title %}
+	Connexion
 {% endblock %}
 
-{% block styles %}<link rel="stylesheet" href="/css/register.css">
-	<link rel="stylesheet" href="/css/radiusShape.css">
-	<link rel="stylesheet" href="/css/header.css">
-	<link rel="stylesheet" href="/css/roots.css">
+{% block styles %}
+	<link rel="stylesheet" href="/css/authentication.css">
+	<link rel="stylesheet" href="/css/headerFooter.css">
 {% endblock %}
 
 {% block header %}
@@ -14,9 +14,10 @@
 {% endblock %}
 
 {% block content %}
+	<div id="radius-shape-1"></div>
+	<div id="radius-shape-2"></div>
+
 	<div class="container">
-		<div id="radius-shape-2"></div>
-		<div id="radius-shape-3"></div>
 		<form action="/login" method="post" class="register-form">
 			<h1 class='register-title'>Connexion</h1>
 
@@ -51,4 +52,8 @@
 
 {% block footer %}
 	{% include "/layouts/footer.twig" %}
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/authentication.js"></script>
 {% endblock %}

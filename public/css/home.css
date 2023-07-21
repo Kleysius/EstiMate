@@ -1,17 +1,3 @@
-:root {
-    --dark-color: hsl(var(--hue), 100%, 9%);
-    --light-color: hsl(var(--hue), 95%, 98%);
-    --base: hsl(var(--hue), 95%, 50%);
-    --complimentary1: hsl(var(--hue-complimentary1), 95%, 50%);
-    --complimentary2: hsl(var(--hue-complimentary2), 95%, 50%);
-
-    --font-family: 'Montserrat', sans-serif;
-
-    --bg-gradient: linear-gradient(to bottom,
-            hsl(var(--hue), 95%, 99%),
-            hsl(var(--hue), 95%, 84%));
-}
-
 html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -36,10 +22,6 @@ body {
     height: 100%;
     pointer-events: none;
     z-index: -1;
-}
-
-strong {
-    font-weight: 600;
 }
 
 .overlay-container {
@@ -68,6 +50,7 @@ strong {
 }
 
 .text-gradient {
+    font-size: 1.2em;
     background-image: linear-gradient(45deg,
             var(--base) 25%,
             var(--complimentary2));

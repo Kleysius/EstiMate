@@ -127,7 +127,6 @@ mainRouter.get('/estimate', (req, res) => {
         // On utilise la méthode 'render' pour rendre le fichier 'estimate.twig' situé dans le dossier 'pages'
         res.render('pages/estimate.twig');
     } catch (error) {
-        // S'il y a une erreur, on l'affiche dans la console
         console.log(error);
     }
 });
@@ -135,10 +134,8 @@ mainRouter.get('/estimate', (req, res) => {
 // Définition de la route pour la page à propos
 mainRouter.get('/about', (req, res) => {
     try {
-        // On utilise la méthode 'render' pour rendre le fichier 'about.twig' situé dans le dossier 'pages'
         res.render('pages/about.twig');
     } catch (error) {
-        // S'il y a une erreur, on l'affiche dans la console
         console.log(error);
     }
 });
@@ -146,10 +143,17 @@ mainRouter.get('/about', (req, res) => {
 // Définition de la route pour la page contact
 mainRouter.get('/contact', (req, res) => {
     try {
-        // On utilise la méthode 'render' pour rendre le fichier 'contact.twig' situé dans le dossier 'pages'
         res.render('pages/contact.twig');
     } catch (error) {
-        // S'il y a une erreur, on l'affiche dans la console
+        console.log(error);
+    }
+});
+
+// Définition de la route pour la faq
+mainRouter.get('/faq', (req, res) => {
+    try {
+        res.render('pages/faq.twig');
+    } catch (error) {
         console.log(error);
     }
 });

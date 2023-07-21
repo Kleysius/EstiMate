@@ -118,14 +118,10 @@ class Orb {
 
     setBounds() {
         // à quelle distance de l'origine { x, y } chaque orbe peut-il se déplacer
-        const maxDist =
-            window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
+        const maxDist = window.innerWidth < 1000 ? window.innerWidth / 3 : window.innerWidth / 5;
         // l'origine { x, y } de chaque orbe (le coin inférieur droit de l'écran)
         const originX = window.innerWidth / 1.25;
-        const originY =
-            window.innerWidth < 1000
-                ? window.innerHeight
-                : window.innerHeight / 1.375;
+        const originY = window.innerWidth < 1000 ? window.innerHeight : window.innerHeight / 1.375;
 
         // permettre à chaque orbe de se déplacer à une distance x de son origine x / y
         return {
@@ -226,3 +222,27 @@ document
             orb.fill = colorPalette.randomColor();
         });
     });
+
+ScrollReveal().reveal('header', {
+    delay: 200,
+    duration: 1000,
+    origin: 'top',
+    distance: '100px',
+    reset: true
+});
+
+ScrollReveal().reveal('footer', {
+    delay: 400,
+    duration: 1000,
+    origin: 'bottom',
+    distance: '100px',
+    reset: true
+});
+
+ScrollReveal().reveal('.overlay-container', {
+    delay: 600,
+    duration: 1500,
+    origin: 'bottom',
+    distance: '100px',
+    reset: true
+});

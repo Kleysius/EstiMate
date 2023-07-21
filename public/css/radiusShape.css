@@ -1,11 +1,24 @@
+#radius-shape-1 {
+    position: absolute;
+    height: 300px;
+    width: 300px;
+    top: 0;
+    left: -100px;
+    background: radial-gradient(#ff3d00, #ffcfaf99);
+    box-shadow: 0 0 35px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: float1 12s ease-in-out infinite;
+    z-index: -1;
+}
+
 #radius-shape-2 {
     position: absolute;
     border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-    bottom: -90px;
-    right: -90px;
+    bottom: 60px;
+    right: -80px;
     width: 300px;
     height: 300px;
-    background: radial-gradient(#ff3d00, #ffcfaf99);
+    background: radial-gradient(#4333FF, #afbeff99);
     overflow: hidden;
     box-shadow: 0 0 35px 10px rgba(0, 0, 0, 0.1);
     animation: float 14s ease-in-out infinite;
@@ -14,49 +27,9 @@
 
 #radius-shape-3 {
     position: absolute;
-    height: 220px;
-    width: 220px;
-    top: -25px;
-    left: -90px;
-    background: radial-gradient(#4333FF, #afbeff99);
-    box-shadow: 0 0 35px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    animation: float1 12s ease-in-out infinite;
-    z-index: -1;
-}
-
-#radius-shape-5 {
-    position: absolute;
     border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-    bottom: 20px;
-    right: -120px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(#4333FF, #afbeff99);
-    overflow: hidden;
-    box-shadow: 0 0 35px 10px rgba(0, 0, 0, 0.1);
-    animation: float 14s ease-in-out infinite;
-    z-index: -1;
-}
-
-#radius-shape-6 {
-    position: absolute;
-    height: 300px;
-    width: 300px;
-    top: -40px;
-    left: -150px;
-    background: radial-gradient(#ff3d00, #ffcfaf99);
-    box-shadow: 0 0 35px 10px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    animation: float1 12s ease-in-out infinite;
-    z-index: -1;
-}
-
-#radius-shape-7 {
-    position: absolute;
-    border-radius: 38% 62% 63% 37% / 70% 33% 67% 30%;
-    bottom: -30px;
-    right: -180px;
+    top: -60px;
+    right: -80px;
     width: 300px;
     height: 300px;
     background: radial-gradient(#4333FF, #afbeff99);

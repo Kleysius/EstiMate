@@ -33,8 +33,8 @@ sections.forEach((section, index) => {
     if (button) {
         button.addEventListener('click', () => {
             animateSection(section, sections[index + 1]);
-            updateProgressBar((index + 1) / (sections.length - 2));
-            if (index === sections.length - 3) {
+            updateProgressBar((index + 1) / (sections.length - 1));
+            if (index === sections.length - 2) {
                 progressBarActive.style.borderRadius = '0';
             }
         });

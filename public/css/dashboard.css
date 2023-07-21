@@ -1,9 +1,3 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 :root {
     --app-bg: #dae2ff;
     --card: #fefffe;
@@ -39,9 +33,11 @@
 }
 
 body {
-    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
     font-family: 'Montserrat', sans-serif;
     background-color: var(--app-bg);
+    overflow-x: hidden;
 }
 
 .sidebar {
@@ -308,7 +304,7 @@ body {
 /* Estimate Section */
 #estimate-section {
     flex-wrap: wrap;
-    flex-direction: column;
+    align-items: flex-start;
     gap: 20px;
 }
 
@@ -332,7 +328,7 @@ body {
 
 .estimate-card {
     position: relative;
-    max-width: 600px;
+    width: 550px;
     background-color: var(--card);
     border-radius: 10px;
     padding: 10px;
@@ -442,8 +438,13 @@ body {
     transition: all 0.2s ease;
 }
 
+.table-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
 .estimate-table {
-    display: none;
     width: 100%;
     border-collapse: collapse;
 }
@@ -507,6 +508,7 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 #cancel {

@@ -1,43 +1,40 @@
 body {
+    position: relative;
     background: rgb(181, 175, 255);
     background: linear-gradient(45deg, rgba(181, 175, 255, 1) 0%, rgba(255, 198, 179, 1) 100%);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
     overflow-x: hidden;
 }
 
 main {
-    width: 100%;
     display: flex;
-    align-items: center;
 }
 
 .register-explanation {
     font-family: 'Hind Madurai', sans-serif;
     text-align: center;
-    max-width: 600px;
+    max-width: 610px;
     margin: auto;
-    background-color: #3a456b38;
-    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.375);
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    padding: 20px;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 2rem;
 }
 
 .register-explanation h1 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--orange);
+    color: var(--bright-blue);
     margin-bottom: 20px;
 }
 
 .register-explanation p {
     font-size: 1em;
-    color: var(--white);
+    color: var(--dark-blue);
     line-height: 1.8em;
-    margin-bottom: 20px;
 }
 
 .container {
@@ -49,7 +46,7 @@ main {
 }
 
 .register-title {
-    color: var(--white);
+    color: var(--bright-blue);
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin-bottom: 20px;
@@ -57,12 +54,11 @@ main {
 
 .register-form {
     font-family: 'Hind Madurai', sans-serif;
-    background-color: #3a456b38;
-    backdrop-filter: blur(20px);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
-    margin-top: 20px;
-    padding: 20px;
+    background: rgba(255, 255, 255, 0.375);
+    box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 2rem;
 }
 
 /* modale avatars */
@@ -163,6 +159,7 @@ main {
     color: white;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
 }
 
 #openAvatarModal:hover {
@@ -202,20 +199,19 @@ main {
     background-color: transparent;
     border-radius: 10px;
     border: none;
-    box-shadow: rgba(50, 50, 93, 0.2) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.2) 0px 18px 36px -18px inset;
-    color: var(--white);
+    box-shadow: rgb(158 158 158 / 20%) 0px 30px 60px -12px inset, rgb(0 0 0 / 29%) 0px 18px 36px -18px inset;    color: var(--white);
     width: 100%;
     padding: 10px;
     outline: none;
 }
 
 .input-field input::placeholder {
-    color: #ffffff65;
+    color: #ffffff92;
     font-style: italic;
 }
 
 .input-field input:focus {
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 3px #b5c9fc;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 3px #b5c9fc;
 }
 
 .error-message {
@@ -248,7 +244,6 @@ main {
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
     font-size: 1.1em;
-    letter-spacing: 1px;
     background-color: #FF4000;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
@@ -267,7 +262,7 @@ main {
     text-align: center;
     font-size: 0.9em;
     margin-top: 20px;
-    color: var(--white);
+    color: var(--bright-blue);
 }
 
 .login-link a {
