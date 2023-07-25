@@ -9,6 +9,7 @@ const path = require('path'); // Module pour gérer les chemins de fichiers et d
 const mainRouter = require('./src/routes/mainRoutes.js') 
 const registerRouter = require('./src/routes/registerRoutes.js');
 const estimateRouter = require('./src/routes/estimateRoutes.js');
+const contactRouter = require('./src/routes/contactRoutes.js');
 
 // Charger le module dotenv pour gérer les variables d'environnement
 require('dotenv').config();
@@ -40,7 +41,7 @@ app.use(cookieParser());
 
 app.use(function(req, res, next) {
     // res.locals.session = req.session;
-    req.session.userId = "64af0c0c4428b77ea47b1b46";
+    req.session.userId = "64b4f702214a4cce267fbb23";
     next();
 });
 
@@ -48,6 +49,7 @@ app.use(function(req, res, next) {
 app.use(mainRouter);
 app.use(registerRouter);
 app.use(estimateRouter);
+app.use(contactRouter);
 
 // Démarrer le serveur sur le port défini dans les variables d'environnement
 app.listen(process.env.PORT, (err) => {

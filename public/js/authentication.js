@@ -1,3 +1,24 @@
+document.querySelectorAll('.flip-btn').forEach(btn => {
+    btn.addEventListener('click', e => {
+        e.preventDefault();
+        const card = document.querySelector('.card');
+        const frontFace = document.querySelector('.card-face-front');
+        const backFace = document.querySelector('.card-face-back');
+        
+        card.classList.toggle('is-flipped');
+        
+        setTimeout(() => {
+        if (card.classList.contains('is-flipped')) {
+            frontFace.style.display = 'none';
+            backFace.style.display = 'flex';
+        } else {
+            backFace.style.display = 'none';
+            frontFace.style.display = 'block';
+        }
+        }, 200);
+    });
+});
+
 const modal = document.getElementById("avatarModal");
 const btn = document.getElementById("openAvatarModal");
 const span = document.getElementById("closeAvatarModal");
@@ -40,22 +61,22 @@ saveButton.onclick = function () {
     modal.style.display = "none";
 }
 
-ScrollReveal().reveal('.register-explanation', {
-    delay: 200,
-    duration: 1500,
-    origin: 'left',
-    distance: '100px',
-    reset: true
-});
+window.addEventListener('load', function () {
 
-const containers = document.querySelectorAll('.container');
-containers.forEach((container) => {
-    ScrollReveal().reveal(container, {
+    ScrollReveal().reveal('.register-explanation', {
         delay: 200,
         duration: 1500,
-        origin: 'bottom',
+        origin: 'left',
         distance: '100px',
         reset: true
     });
-}
-);
+
+    ScrollReveal().reveal('.auth-form', {
+        delay: 600,
+        duration: 1500,
+        origin: 'right',
+        distance: '100px',
+        reset: true
+    });
+
+});

@@ -26,6 +26,7 @@ body {
     max-width: 600px;
     border-radius: 0 0 2rem 2rem;
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    visibility: hidden;
 }
 
 .content-header {
@@ -64,6 +65,7 @@ body {
     border-radius: 0 0 2rem 2rem;
     max-width: 620px;
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
+    visibility: hidden;
 }
 
 .faq {

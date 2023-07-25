@@ -48,7 +48,7 @@ estimateRouter.get('/send_estimation/:id', async (req, res) => {
                 res.send(err);
             } else {
                 const mailOptions = {
-                    from: 'sebasti.thomass@gmail.com',
+                    from: process.env.GMAIL_USERNAME,
                     to: user.email,
                     subject: `Votre estimation pour le projet ${estimate.website_name}`,
                     html: html

@@ -1,115 +1,176 @@
+// Récupération du bouton qui permet de changer de mode (clair/sombre)
 const modeSwitch = document.querySelector('.mode-switch');
+
+// Ajout d'un écouteur d'événements sur le bouton pour changer le mode d'affichage
 modeSwitch.addEventListener('click', function () {
+    // Toggle entre le mode clair et sombre lorsque le bouton est cliqué
     document.documentElement.classList.toggle('dark');
+    // Toggle l'état actif du bouton
     modeSwitch.classList.toggle('active');
 });
 
+// Définition des onglets
 const tabs = ['home', 'estimate', 'account', 'messagerie', 'contact'];
+// Définition des styles d'affichage pour chaque onglet
 const displayStyles = ['flex', 'flex', 'flex', 'flex', 'flex'];
 
+// Fonction pour retirer la classe active des onglets
 function removeActiveClass() {
+    // Parcours de chaque onglet et suppression de la classe 'active'
     tabs.forEach(tab => document.getElementById(`${tab}-tab`).classList.remove('active'));
 }
 
+// Fonction pour masquer toutes les sections
 function hideAllSections() {
+    // Parcours de chaque onglet et masquage de la section correspondante
     tabs.forEach(tab => document.getElementById(`${tab}-section`).style.display = 'none');
 }
 
+// Ajout d'un écouteur d'événements à chaque onglet
 tabs.forEach((tab, index) => {
     document.getElementById(`${tab}-tab`).addEventListener('click', function () {
+        // Masquage de toutes les sections
         hideAllSections();
+        // Affichage de la section correspondante à l'onglet cliqué
         document.getElementById(`${tab}-section`).style.display = displayStyles[index];
+        // Suppression de la classe 'active' de tous les onglets
         removeActiveClass();
+        // Ajout de la classe 'active' à l'onglet cliqué
         this.classList.add('active');
     });
 });
 
+// Gestion du clic sur le lien 'estimate'
 document.getElementById('estimate-link').addEventListener('click', function (e) {
+    // Empêche le comportement par défaut du clic sur un lien
     e.preventDefault();
+    // Déclenche un clic sur l'onglet 'estimate'
     document.getElementById('estimate-tab').click();
 });
 
+// Gestion du clic sur le bouton 'account'
 document.querySelectorAll('#account-button').forEach(button => {
     button.addEventListener('click', function () {
+        // Masquage de toutes les sections
         hideAllSections();
+        // Affichage de la section 'account'
         document.getElementById('account-section').style.display = 'flex';
+        // Suppression de la classe 'active' de tous les onglets
         removeActiveClass();
+        // Ajout de la classe 'active' à l'onglet 'account'
         document.getElementById('account-tab').classList.add('active');
     });
 });
 
+// Récupération des éléments toggle
 const toggles = document.getElementsByClassName("toggle");
 
+// Parcours de chaque élément toggle
 for (let i = 0; i < toggles.length; i++) {
+    // Récupération du conteneur de table et de l'icône toggle
     const tableContainer = toggles[i].nextElementSibling;
     const toggleIcon = toggles[i].querySelector(".toggle-icon");
 
-    // éviter de cliquer deux fois sur le bouton pour afficher le tableau
+    // Initialisation du conteneur de table à une hauteur de 0px
     tableContainer.style.maxHeight = "0px";
 
+    // Ajout d'un écouteur d'événements sur chaque élément toggle
     toggles[i].addEventListener("click", function () {
+        // Si le conteneur de table est caché
         if (tableContainer.style.maxHeight === "0px") {
+            // Récupération de la hauteur du conteneur de table
             const tableContainerHeight = tableContainer.scrollHeight + "px";
+            // Modification de la hauteur du conteneur de table pour l'afficher
             tableContainer.style.maxHeight = tableContainerHeight;
+            // Changement de l'icône en '-'
             toggleIcon.classList.remove('fa-plus-circle');
             toggleIcon.classList.add('fa-minus-circle');
         } else {
+            // Si le conteneur de table est visible, on le cache
             tableContainer.style.maxHeight = "0px";
+            // Changement de l'icône en '+'
             toggleIcon.classList.add('fa-plus-circle');
             toggleIcon.classList.remove('fa-minus-circle');
         }
     });
 }
 
+// Fonction pour supprimer une estimation
 function deleteEstimation(event, id) {
+    // Empêche le comportement par défaut du clic sur un lien
     event.preventDefault();
-    const deleteModal = document.getElementById('deleteModal');
-    const btnCancel = document.getElementById('cancel');
-    const btnConfirm = document.getElementById('confirm');
 
+    // Récupération de la modal de suppression
+    const deleteModal = document.getElementById('deleteModal');
+    // Récupération des boutons 'cancel' et 'confirm'
+    const btnCancel = deleteModal.querySelector('.cancel');
+    const btnConfirm = deleteModal.querySelector('.confirm');
+
+    // Affichage de la modal de suppression
     deleteModal.style.display = 'block';
 
+    // Gestion du clic sur le bouton 'cancel'
     btnCancel.onclick = function () {
+        // Masquage de la modal de suppression
         deleteModal.style.display = 'none';
     }
 
+    // Gestion du clic sur le bouton 'confirm'
     btnConfirm.onclick = function () {
+        // Masquage de la modal de suppression
         deleteModal.style.display = 'none';
+        // Redirection vers l'URL de suppression de l'estimation
         window.location.href = "/delete_estimation/" + id;
     }
 }
 
+document.getElementById('logout').addEventListener('click', function (e) {
+    e.preventDefault();
+    const logoutModal = document.getElementById('logoutModal');
+    logoutModal.style.display = 'block';
+
+    const btnCancel = logoutModal.querySelector('.cancel');
+    btnCancel.onclick = function () {
+        logoutModal.style.display = 'none';
+    }
+
+    const btnConfirm = logoutModal.querySelector('.confirm');
+    btnConfirm.onclick = function () {
+        window.location.href = '/logout';
+    }
+});
+
+// Fonction pour ajouter un "like" à un message
 function addLike(message) {
     const bubble = message.querySelector('.bubble');
-    let isLiked = false;
-    let like;
+
+    let like = document.createElement('div');
+    like.className = 'like';
+
+    // Ajoute une autre classe si le message est un message de l'utilisateur
+    if (message.className.includes('sent')) {
+        like.classList.add('user-like');
+    }
+
+    // Ajout d'un écouteur d'événement sur la bulle du message pour le double clic
     bubble.addEventListener('dblclick', function () {
-        if (isLiked) {
-            // Si le message est déjà liké, efface le like
+        if (like.parentElement === bubble) {
+            // Si le message est déjà "liké", on retire le "like"
             bubble.removeChild(like);
         } else {
-            // Sinon, ajoute un like au message
-            like = document.createElement('div');
-            like.className = 'like';
-            // Ajoute une autre classe si le message est un message de l'utilisateur
-            if (message.className.includes('sent')) {
-                like.classList.add('user-like');
-            }
+            // Sinon, on ajoute un "like" au message
             bubble.appendChild(like);
         }
-        isLiked = !isLiked;  // Inverse l'état du like
     });
 }
 
+// Fonction pour faire défiler le chat vers le bas
 function scrollToBottom() {
     const chat = document.getElementById('chat');
     chat.scrollTop = chat.scrollHeight;
 }
 
-// Ajoute la fonction de like au premier message
-const firstMessage = document.querySelector('.message.received');
-addLike(firstMessage);
-
+// Messages automatiques à envoyer
 let autoMessages = [
     "Merci pour votre message. Je suis en train d'y jeter un œil.",
     "En attendant, n'hésitez pas à consulter notre FAQ, elle contient beaucoup d'informations utiles.",
@@ -123,107 +184,166 @@ let autoMessages = [
 
 let autoMessageIndex = 0;
 
+function createMessage(content, avatarUrl, className) {
+
+    const message = document.createElement('div');
+    message.className = `message ${className}`;
+    message.innerHTML = `
+        <img src="${avatarUrl}" alt="User avatar" class="message-avatar">
+        <div class="bubble">${content}</div>
+    `;
+    addLike(message);
+    return message;
+
+}
+
+function sendMessage(content, avatarUrl, className, delay = 0) {
+    setTimeout(() => {
+        const message = createMessage(content, avatarUrl, className);
+        document.getElementById('chat').appendChild(message);
+        scrollToBottom();
+    }, delay);
+}
+
+// Ajout de la fonction de "like" au premier message
+const firstMessage = document.querySelector('.message.received');
+addLike(firstMessage);
+
 document.getElementById('send-message').addEventListener('submit', function (event) {
     event.preventDefault();
     const input = document.getElementById('message-input');
-
-    // Récupérez l'URL de l'avatar de l'utilisateur depuis l'élément caché
     const userAvatarUrl = document.getElementById('userAvatarUrl').value;
 
-    // Crée et ajoute le message de l'utilisateur
-    const userMessage = document.createElement('div');
-    userMessage.className = 'message sent';
-    userMessage.innerHTML = `<img src="${userAvatarUrl}" alt="User avatar" class="message-avatar">
-    <div class="bubble"><p>${input.value}</p></div>`;
-    document.getElementById('chat').appendChild(userMessage);
-    addLike(userMessage);
+    sendMessage(`<p>${input.value}</p>`, userAvatarUrl, 'sent');
 
-    // Crée et ajoute une réponse automatique du freelance
     if (autoMessageIndex < autoMessages.length) {
-        setTimeout(() => {
-            const freelancerMessage = document.createElement('div');
-            freelancerMessage.className = 'message received';
-            freelancerMessage.innerHTML = `<img src="img/freelance-user.jpg" alt="Freelancer avatar" class="message-avatar">
-            <div class="bubble"><p>${autoMessages[autoMessageIndex]}</p></div>`;
-            document.getElementById('chat').appendChild(freelancerMessage);
-            addLike(freelancerMessage);
-            autoMessageIndex++;
-
-            // Fait défiler la fenêtre de chat vers le bas après que le freelance ait répondu
-            scrollToBottom();
-        }, 1000);
+        sendMessage(`<p>${autoMessages[autoMessageIndex]}</p>`, "img/freelance-user.jpg", 'received', 1000);
+        autoMessageIndex++;
     }
 
-    // Efface le champ de saisie
     input.value = '';
-
-    // Fait défiler la fenêtre de chat vers le bas après que l'utilisateur ait envoyé un message
-    scrollToBottom();
 });
 
-// Quand l'utilisateur clique sur le smiley, ajoute le smiley au chat
 document.getElementById('smiley').addEventListener('click', function () {
     const menu = document.getElementById('emoji-menu');
-    if (menu.style.display === 'none') {
-        menu.style.display = 'flex';
-    } else {
-        menu.style.display = 'none';
-    }
+    menu.classList.toggle('show');
 });
 
 document.querySelectorAll('.emoji').forEach(function (emoji) {
     emoji.addEventListener('click', function () {
-        const input = document.getElementById('message-input');
         const userAvatarUrl = document.getElementById('userAvatarUrl').value;
-        input.value = this.outerHTML;  // Met l'emoji en tant que message
+        sendMessage(this.outerHTML, userAvatarUrl, 'sent');
 
-        // Crée et ajoute le message de l'utilisateur
-        const userMessage = document.createElement('div');
-        userMessage.className = 'message sent';
-        userMessage.innerHTML = `<img src="${userAvatarUrl}" alt="User avatar" class="message-avatar">
-        <div class="bubble">${input.value}</div>`;
-        document.getElementById('chat').appendChild(userMessage);
-        addLike(userMessage);
-
-        // Crée et ajoute une réponse automatique du freelance
         if (autoMessageIndex < autoMessages.length) {
-            setTimeout(() => {
-                const freelancerMessage = document.createElement('div');
-                freelancerMessage.className = 'message received';
-                freelancerMessage.innerHTML = `<img src="img/freelance-user.jpg" alt="Freelancer avatar" class="message-avatar">
-                <div class="bubble"><p>${autoMessages[autoMessageIndex]}</p></div>`;
-                document.getElementById('chat').appendChild(freelancerMessage);
-                addLike(freelancerMessage);
-                autoMessageIndex++;
-
-                // Fait défiler la fenêtre de chat vers le bas après que le freelance ait répondu à un smiley
-                scrollToBottom();
-            }, 1000);
+            sendMessage(`<p>${autoMessages[autoMessageIndex]}</p>`, "img/freelance-user.jpg", 'received', 1000);
+            autoMessageIndex++;
         }
 
-        // Efface le champ de saisie
-        input.value = '';
-
-        // Fait défiler la fenêtre de chat vers le bas après que l'utilisateur ait envoyé un smiley
-        scrollToBottom();
-
-        document.getElementById('emoji-menu').style.display = 'none';
+        document.getElementById('emoji-menu').classList.remove('show');
     });
 });
 
 document.addEventListener('click', function (event) {
     const menu = document.getElementById('emoji-menu');
-    if (menu.style.display === 'flex' && !menu.contains(event.target) && event.target.id !== 'smiley') {
-        menu.style.display = 'none';
+    if (menu.classList.contains('show') && !menu.contains(event.target) && event.target.id !== 'smiley') {
+        menu.classList.remove('show');
     }
 });
 
+// Fonction asynchrone pour envoyer un email
 async function sendEmail(element, estimateId) {
-    element.innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse email-loader"></i>';
-    let response = await fetch('/send_estimation/' + estimateId)
-    if (response.status === 200) {
-        element.innerHTML = '<i class="fa-solid fa-envelope-circle-check email-check"></i>';
-    } else {
+    try {
+        element.innerHTML = '<i class="fa-solid fa-spinner fa-spin-pulse email-loader"></i>'; // Affiche un loader pendant l'envoi de l'email
+        let response = await fetch(`/send_estimation/${estimateId}`); // Appel API pour envoyer l'email
+        if (response.ok) {
+            // Si l'email a été envoyé avec succès, affiche une icône de validation
+            element.innerHTML = '<i class="fa-solid fa-envelope-circle-check email-check"></i>';
+        } else {
+            throw new Error(`Email not sent: ${response.status}`);
+        }
+    } catch (error) {
+        console.error(error);
+        // En cas d'erreur, affiche une icône d'erreur
         element.innerHTML = '<i class="fa-solid fa-envelope-circle-xmark email-error"></i>';
     }
 }
+
+const contactModal = document.getElementById('contactModal');
+const btnContact = document.getElementById('btnContactUs');
+const closeContactModal = document.querySelector('.closeContactModal');
+
+btnContact.onclick = function () {
+    contactModal.style.display = 'block';
+}
+
+closeContactModal.onclick = function () {
+    contactModal.style.display = 'none';
+}
+
+window.onclick = function (event) {
+    if (event.target == contactModal) {
+        contactModal.style.display = 'none';
+    }
+}
+
+function openMessage(id) {
+    // Obtenez toutes les divs de message complet
+    var messageDivs = document.getElementsByClassName('message-full');
+
+    // Cachez toutes les divs de message
+    for (var i = 0; i < messageDivs.length; i++) {
+        messageDivs[i].style.display = 'none';
+    }
+
+    // Obtenez la div de message spécifique que vous voulez afficher
+    var messageDiv = document.getElementById('message' + id);
+
+    // Affichez la div de message
+    if (messageDiv.style.display === 'none') {
+        messageDiv.style.display = 'flex';
+    } else {
+        messageDiv.style.display = 'none';
+    }
+}
+
+document.getElementById('deleteMessages').addEventListener('click', async () => {
+    // Récupération de tous les checkboxes
+    const checkboxes = document.querySelectorAll('.message-checkbox');
+
+    // Parcourir chaque checkbox pour trouver celles qui sont cochées
+    for (let checkbox of checkboxes) {
+        if (checkbox.checked) {
+            // Extraire l'ID du message de l'ID de la checkbox
+            const messageId = checkbox.id.replace('message-checkbox-', '');
+
+            // Effectuer la requête DELETE
+            try {
+                const response = await fetch(`/contact/delete-message/${messageId}`, { method: 'DELETE' });
+
+                // Si la requête a réussi, appliquer l'animation de fadeout et supprimer le message de la liste
+                if (response.ok) {
+                    const messageElementFull = document.getElementById(`message${messageId}`);
+                    const messageElementPreview = document.querySelector(`.message-preview[onclick="openMessage('${messageId}')"]`);
+
+                    messageElementFull.classList.add('fadeout');
+                    if (messageElementPreview) {
+                        messageElementPreview.classList.add('fadeout');
+                    }
+
+                    // Après que l'animation soit terminée, supprimer les éléments
+                    setTimeout(() => {
+                        messageElementFull.remove();
+                        if (messageElementPreview) {
+                            messageElementPreview.remove();
+                        }
+                    }, 500); // 500 est la durée de l'animation en millisecondes
+
+                } else {
+                    console.error('Erreur lors de la suppression du message');
+                }
+            } catch (error) {
+                console.error('Erreur lors de la suppression du message', error);
+            }
+        }
+    }
+});

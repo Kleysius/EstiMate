@@ -75,7 +75,7 @@
 				</a>
 			</div>
 			<div class="sidebar-footer-item" title="Déconnexion">
-				<a href="/logout">
+				<a href="/logout" id="logout">
 					<i class="fa-solid fa-right-from-bracket"></i>
 				</a>
 			</div>
@@ -231,146 +231,176 @@
 						</div>
 					</div>
 
-					{% endfor %}
-				{% else %}
-					<div class="card">
-						<p>Pas d'estimation trouvée. Veuillez commencer par créer une nouvelle estimation.</p>
-						<a href="/estimate" class="new-estimate-btn">Nouvelle estimation</a>
-					</div>
-				{% endif %}
-			</section>
-
-			{# Mon compte #}
-			<section class="content-section" id="account-section">
-
-				<div id="avatarModal" class="modal">
-					<div class="modal-content">
-						<span id="closeAvatarModal" class="close">&times;</span>
-						<div class="avatar-selection">
-							{% for avatar in avatars %}
-								<div class="avatar-option">
-									<input type="radio" id="{{ avatar }}" name="avatarOption" value="{{ avatar }}">
-									<label for="{{ avatar }}">
-										<img src="{{ avatar }}" alt="Avatar option">
-									</label>
-								</div>
-							{% endfor %}
-						</div>
-						<button id="saveAvatarSelection">Sauvegarder la sélection</button>
-					</div>
-				</div>
-
+				{% endfor %}
+			{% else %}
 				<div class="card">
-					<h2>Modifier mes informations</h2>
-					<form class="form" action="/update_account/{{ user._id }}" method="post">
-						<div class="form-field">
-							<label class="form-label" for="name">Nom :</label>
-							<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
-						</div>
-
-						<div class="form-field">
-							<label class="form-label" for="firstname">Prénom :</label>
-							<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
-						</div>
-
-						<div class="form-field">
-							<label class="form-label" for="email">Email :</label>
-							<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
-						</div>
-
-						<div class="input-field">
-							<input type="hidden" id="selectedAvatar" name="avatar" required>
-							<div class="input-img">
-								{% if user.avatar %}
-									<img src="{{ user.avatar }}" alt="Avatar" class="avatar-preview">
-								{% else %}
-									<img src="avatars/unknown.svg" alt="Avatar" class="avatar-preview">
-								{% endif %}
-								<button id="openAvatarModal">Choisir un autre avatar</button>
-							</div>
-						</div>
-
-						<input class="form-submit" type="submit" value="Mettre à jour">
-					</form>
+					<p>Pas d'estimation trouvée. Veuillez commencer par créer une nouvelle estimation.</p>
+					<a href="/estimate" class="new-estimate-btn">Nouvelle estimation</a>
 				</div>
+			{% endif %}
+		</section>
 
-			</section>
+		{# Mon compte #}
+		<section class="content-section" id="account-section">
 
-			{# Messagerie #}
-			<section class="content-section" id="messagerie-section">
-
-				<div class="card messagerie">
-					<h2>Messagerie</h2>
-
-					<div id="chat">
-						<div class="message received">
-							<img src="img/freelance-user.jpg" alt="Freelancer avatar" class="message-avatar">
-							<div class="bubble">
-								<p>Bonjour, je suis le freelance assigné à votre projet. J'ai reçu votre estimation et je suis prêt à commencer le travail. Avez-vous des questions ou des préoccupations supplémentaires ?</p>
+			<div id="avatarModal" class="modal">
+				<div class="avatar-modal-content">
+					<span id="closeAvatarModal" class="close">&times;</span>
+					<div class="avatar-selection">
+						{% for avatar in avatars %}
+							<div class="avatar-option">
+								<input type="radio" id="{{ avatar }}" name="avatarOption" value="{{ avatar }}">
+								<label for="{{ avatar }}">
+									<img src="{{ avatar }}" alt="Avatar option">
+								</label>
 							</div>
-						</div>
-						<!-- Les autres messages seront ajoutés ici -->
-						<input type="hidden" id="userAvatarUrl" value="{{ user.avatar }}">
+						{% endfor %}
+					</div>
+					<button id="saveAvatarSelection">Sauvegarder la sélection</button>
+				</div>
+			</div>
+
+			<div class="card">
+				<h2>Modifier mes informations</h2>
+				<form class="form" action="/update_account/{{ user._id }}" method="post">
+					<div class="form-field">
+						<label class="form-label" for="name">Nom :</label>
+						<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
 					</div>
 
-					<form id="send-message">
-						<div class="message-input-container">
-							<div class="emoji-picker">
-								<img src="img/emojis/smiling-face.png" id="smiley" alt="smiley">
-								<div id="emoji-menu" style="display: none;">
-									<img src="img/emojis/smiling-face.png" class="emoji" alt="smiling">
-									<img src="img/emojis/emoji-2.png" class="emoji" alt="emoji-2">
-									<img src="img/emojis/emoji-3.png" class="emoji" alt="emoji-3">
-									<img src="img/emojis/emoji-4.png" class="emoji" alt="emoji-4">
-									<img src="img/emojis/emoji-5.png" class="emoji" alt="emoji-5">
-									<img src="img/emojis/emoji-6.png" class="emoji" alt="emoji-6">
-									<img src="img/emojis/emoji-7.png" class="emoji" alt="emoji-7">
-									<img src="img/emojis/emoji-8.png" class="emoji" alt="emoji-8">
-									<img src="img/emojis/emoji-9.png" class="emoji" alt="emoji-9">
-									<img src="img/emojis/emoji-10.png" class="emoji" alt="emoji-10">
-									<img src="img/emojis/emoji-11.png" class="emoji" alt="emoji-11">
-									<img src="img/emojis/emoji-12.png" class="emoji" alt="emoji-12">
-									<img src="img/emojis/like.png" class="emoji" alt="heart">
-								</div>
-							</div>
-							<input type="text" id="message-input" placeholder="Écrivez un message ...">
+					<div class="form-field">
+						<label class="form-label" for="firstname">Prénom :</label>
+						<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
+					</div>
+
+					<div class="form-field">
+						<label class="form-label" for="email">Email :</label>
+						<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
+					</div>
+
+					<div class="input-field">
+						<input type="hidden" id="selectedAvatar" name="avatar" required>
+						<div class="input-img">
+							{% if user.avatar %}
+								<img src="{{ user.avatar }}" alt="Avatar" class="avatar-preview">
+							{% else %}
+								<img src="avatars/unknown.svg" alt="Avatar" class="avatar-preview">
+							{% endif %}
+							<button id="openAvatarModal">Choisir un autre avatar</button>
 						</div>
-						<button type="submit">
-							<i class="fa-solid fa-paper-plane"></i>
-						</button>
-					</form>
+					</div>
 
-				</div>
-			</section>
+					<input class="form-submit" type="submit" value="Mettre à jour">
+				</form>
+			</div>
 
-			{# Contact section #}
-			<section class="content-section" id="contact-section">
-				<div class="card">
-					<h2>Contact</h2>
-					<p>Vous pouvez nous contacter par e-mail à l'adresse suivante :</p>
-					<p>contact@estimate.fr</p>
-					<p>Ou en remplissant le formulaire ci-dessous</p>
+		</section>
+
+		{# Messagerie #}
+		<section class="content-section" id="messagerie-section">
+
+			<div class="card messagerie">
+				<h2>Messagerie</h2>
+
+				<div id="chat">
+					<div class="message received">
+						<img src="img/freelance-user.jpg" alt="Freelancer avatar" class="message-avatar">
+						<div class="bubble">
+							<p>Bonjour, je suis le freelance assigné à votre projet. J'ai reçu votre estimation et je suis prêt à commencer le travail. Avez-vous des questions ou des préoccupations supplémentaires ?</p>
+						</div>
+					</div>
+					<!-- Les autres messages seront ajoutés ici -->
+					<input type="hidden" id="userAvatarUrl" value="{{ user.avatar }}">
 				</div>
-				<div class="card">
+
+				<form id="send-message">
+					<div class="message-input-container">
+						<div class="emoji-picker">
+							<img src="img/emojis/smiling-face.png" id="smiley" alt="smiley">
+							<div id="emoji-menu">
+								<img src="img/emojis/smiling-face.png" class="emoji" alt="smiling">
+								<img src="img/emojis/emoji-2.png" class="emoji" alt="emoji-2">
+								<img src="img/emojis/emoji-3.png" class="emoji" alt="emoji-3">
+								<img src="img/emojis/emoji-4.png" class="emoji" alt="emoji-4">
+								<img src="img/emojis/emoji-5.png" class="emoji" alt="emoji-5">
+								<img src="img/emojis/emoji-6.png" class="emoji" alt="emoji-6">
+								<img src="img/emojis/emoji-7.png" class="emoji" alt="emoji-7">
+								<img src="img/emojis/emoji-8.png" class="emoji" alt="emoji-8">
+								<img src="img/emojis/emoji-9.png" class="emoji" alt="emoji-9">
+								<img src="img/emojis/emoji-10.png" class="emoji" alt="emoji-10">
+								<img src="img/emojis/emoji-11.png" class="emoji" alt="emoji-11">
+								<img src="img/emojis/emoji-12.png" class="emoji" alt="emoji-12">
+								<img src="img/emojis/like.png" class="emoji" alt="heart">
+							</div>
+						</div>
+						<input type="text" id="message-input" placeholder="Écrivez un message ...">
+					</div>
+					<button type="submit">
+						<i class="fa-solid fa-paper-plane"></i>
+					</button>
+				</form>
+
+			</div>
+		</section>
+
+		{# Contact section #}
+		<section class="content-section" id="contact-section">
+			<div class="contactUs">
+				<i class="fa-regular fa-message"></i>
+				<h2>Vous avez des questions ?</h2>
+				<p>N'hésitez pas à nous contacter !</p>
+				<button class="btn-contact" id="btnContactUs">Nouveau message</button>
+			</div>
+
+			<div class="card modal" id="contactModal">
+				<div class="contact-modal-content">
+					<span class="closeContactModal">&times;</span>
+					<h2>Prise de contact</h2>
+					<p>Vous pouvez nous contacter en remplissant le formulaire ci-dessous</p>
 					<form class="form" action="/contact" method="post">
 						<div class="form-field">
 							<label class="form-label" for="name">Nom :</label>
-							<input class="form-input" type="text" id="name" name="name" value="{{ user.name }}" required>
+							<input class="{{ error.name ? 'input-error' : 'form-input' }}" type="text" id="name" name="name" value="{{ user.name }}" required>
+							{% if error.name %}
+								<i class="fa fa-exclamation-triangle error-icon"></i>
+								<div class="error-message">{{ error.name.message }}</div>
+							{% endif %}
 						</div>
 
 						<div class="form-field">
 							<label class="form-label" for="firstname">Prénom :</label>
-							<input class="form-input" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
+							<input class="{{ error.firstname ? 'input-error' : 'form-input' }}" type="text" id="firstname" name="firstname" value="{{ user.firstname }}" required>
+							{% if error.firstname %}
+								<i class="fa fa-exclamation-triangle error-icon"></i>
+								<div class="error-message">{{ error.firstname.message }}</div>
+							{% endif %}
 						</div>
 
 						<div class="form-field">
 							<label class="form-label" for="email">E-mail :</label>
-							<input class="form-input" type="email" id="email" name="email" value="{{ user.email }}" required>
+							<input class="{{ error.email ? 'input-error' : 'form-input' }}" type="email" id="email" name="email" value="{{ user.email }}" required>
+							{% if error.email %}
+								<i class="fa fa-exclamation-triangle error-icon"></i>
+								<div class="error-message">{{ error.email.message }}</div>
+							{% endif %}
+						</div>
+
+						<div class="form-field">
+							<label class="form-label" for="subject">Sujet :</label>
+							<input class="{{ error.subject ? 'input-error' : 'form-input' }}" type="text" id="subject" name="subject" required>
+							{% if error.subject %}
+								<i class="fa fa-exclamation-triangle error-icon"></i>
+								<div class="error-message">{{ error.subject.message }}</div>
+							{% endif %}
 						</div>
 
 						<div class="form-field">
 							<label class="form-label" for="message">Message :</label>
-							<textarea class="form-input" id="message" name="message" required></textarea>
+							<textarea class="{{ error.message ? 'input-error' : 'form-input' }}" id="message" name="message" required></textarea>
+							{% if error.message %}
+								<i class="fa fa-exclamation-triangle error-icon"></i>
+								<div class="error-message">{{ error.message.message }}</div>
+							{% endif %}
 						</div>
 
 						<div class="form-field">
@@ -378,23 +408,113 @@
 						</div>
 					</form>
 				</div>
-			</section>
-		</div>
-	</div>
-
-	<div id="deleteModal" class="deleteModal">
-		<div class="delete-modal-content">
-			<h2>Confirmation</h2>
-			<p>Êtes-vous sûr de vouloir supprimer cette estimation ?</p>
-			<div class="delete-modal-buttons">
-				<button id="cancel" class="delete-modal-btn">Annuler</button>
-				<button id="confirm" class="delete-modal-btn">Confirmer</button>
 			</div>
+
+			{% if messages %}
+				<div class="messagerie-container">
+					<div class="message-container-header">
+
+						<div class="messagerie-infos">
+							<h2>Messagerie</h2>
+							<p>Nombre de messages :
+								{{ messages|length }}</p>
+						</div>
+
+						<div class="message-search">
+							<input type="text" id="search" placeholder="Rechercher ...">
+							<i class="fa-solid fa-search"></i>
+						</div>
+
+						<div class="message-delete">
+							<button id="deleteMessages" class="delete-button">
+								<i class="fa-regular fa-trash-can"></i>
+							</button>
+						</div>
+
+					</div>
+
+					<div class="messageContainer">
+
+						<aside class="messageSidebar">
+							<ul class="message-list">
+								{% for message in messages %}
+									<li class="message-preview" onclick="openMessage('{{message.id}}')">
+										<div class="preview-checkbox">
+											<input type="checkbox" id="message-checkbox-{{message.id}}" class="message-checkbox">
+										</div>
+										<img src="{{ user.avatar }}" alt="Avatar de l'utilisateur" class="avatar">
+										<div class="preview-content">
+											<h3 class="preview-subject">{{ message.subject }}</h3>
+											<p class="preview-message">{{ message.message|truncate(15) }}</p>
+										</div>
+										<div class="message-infos">
+											<span class="preview-date">{{ message.date|date('d-m-Y H:i') }}</span>
+											<div class="message-status">
+												<p class="status-{{ message.status }}">
+													{% if message.status == 'pending' %}
+														En cours de traitement
+													{% elseif message.status == 'completed' %}
+														Traitée
+													{% else %}
+														Statut inconnu
+													{% endif %}
+												</p>
+											</div>
+										</div>
+									</li>
+								{% endfor %}
+							</ul>
+						</aside>
+
+						<section class="message-content">
+							{% for message in messages %}
+								<article class="message-full" id="message{{message.id}}">
+
+									<div class="message-header">
+										<h3 class="full-subject">{{ message.subject }}</h3>
+										<span class="full-date">{{ message.date|date('d-m-Y') }}</span>
+									</div>
+
+									<div class="message-body">
+										<p class="full-time">{{ message.date|date('H:i') }}</p>
+										<p class="full-message">{{ message.message }}</p>
+									</div>
+
+								</article>
+							{% endfor %}
+						</section>
+
+					</div>
+				</div>
+			{% endif %}
+
+		</section>
+
+	</div>
+</div>
+
+{# Modales de confirmation de suppression et de déconnexion #}
+<div id="deleteModal" class="modal">
+	<div class="modal-content">
+		<h2>Confirmation de suppression</h2>
+		<p>Êtes-vous sûr de vouloir supprimer cette estimation ?</p>
+		<div class="modal-buttons">
+			<button class="modal-btn cancel">Annuler</button>
+			<button class="modal-btn confirm">Confirmer</button>
 		</div>
 	</div>
-{% endblock %}
-{% block scripts %}
-	<script src="/js/dashboard.js"></script>
-	<script src="/js/authentication.js"></script>
-	<script src="/js/chart.js"></script>
-{% endblock %}
+</div>
+
+<div id="logoutModal" class="modal">
+	<div class="modal-content">
+		<h2>Confirmation de déconnexion</h2>
+		<p>Êtes-vous sûr de vouloir vous déconnecter?</p>
+		<div class="modal-buttons">
+			<button class="modal-btn cancel">Annuler</button>
+			<button class="modal-btn confirm">Déconnexion</button>
+		</div>
+	</div>
+</div>{% endblock %}{% block scripts %}
+<script src="/js/dashboard.js"></script>
+<script src="/js/authentication.js"></script>
+<script src="/js/chart.js"></script>{% endblock %}

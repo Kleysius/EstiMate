@@ -20,26 +20,30 @@ faqQuestions.forEach((faqQuestion) => {
     });
 });
 
-ScrollReveal().reveal('.content-section.one', {
-    delay: 200,
-    duration: 1500,
-    origin: 'left',
-    distance: '100px',
-    reset: true
-});
+window.addEventListener('load', function () {
 
-ScrollReveal().reveal('.content-section.two', {
-    delay: 400,
-    duration: 1500,
-    origin: 'right',
-    distance: '100px',
-    reset: true
-});
+    ScrollReveal().reveal('.content-section.one', {
+        delay: 200,
+        duration: 1500,
+        origin: 'left',
+        distance: '100px',
+        reset: true
+    });
 
-ScrollReveal().reveal('.faq-content', {
-    delay: 200,
-    duration: 1500,
-    origin: 'bottom',
-    distance: '100px',
-    reset: true
+    ScrollReveal().reveal('.content-section.two', {
+        delay: 400,
+        duration: 1500,
+        origin: 'right',
+        distance: '100px',
+        reset: true
+    });
+
+    ScrollReveal().reveal('.faq-content', {
+        delay: 200,
+        duration: 1500,
+        origin: 'bottom',
+        distance: '100px',
+        reset: true
+    });
+
 });

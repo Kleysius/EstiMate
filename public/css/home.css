@@ -12,6 +12,12 @@ body {
     font-family: var(--font-family);
     color: var(--dark-color);
     background: var(--bg-gradient);
+    overflow: hidden;
+}
+
+header,
+footer {
+    visibility: hidden;
 }
 
 .orb-canvas {
@@ -35,6 +41,7 @@ body {
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
     border-radius: 2rem;
     border: 1px solid rgba(255, 255, 255, 0.125);
+    visibility: hidden;
 }
 
 .overlay-content {
@@ -102,6 +109,11 @@ body {
 }
 
 .overlay-button-transparent a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
     color: var(--dark-color);
     text-decoration: none;
 }

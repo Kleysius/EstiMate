@@ -3,6 +3,7 @@ const express = require('express');
 const mainRouter = express.Router();
 const userModel = require('../models/userModel.js');
 const estimateModel = require('../models/estimateModel.js');
+const contactModel = require('../models/contactModel.js');
 const fs = require('fs');
 const path = require('path');
 
@@ -27,6 +28,9 @@ mainRouter.get('/dashboard', async (req, res) => {
 
         // On cherche l'estimation associée à cet utilisateur
         let estimates = await estimateModel.find({ user: req.session.userId });
+
+        // Chercher tous les messages de contact associés à cet utilisateur
+        let messages = await contactModel.find({ userId: req.session.userId });
 
         // Création des tableaux pour les noms des projets et leurs coûts totaux
         let projectNames = [];
@@ -60,6 +64,7 @@ mainRouter.get('/dashboard', async (req, res) => {
                     user: user,
                     estimates: estimates,
                     estimateIdSent: estimateIdSent,
+                    messages: messages,
                     avatars: avatars,
                     projectNames: projectNames,
                     totalCosts: totalCosts,
@@ -135,15 +140,6 @@ mainRouter.get('/estimate', (req, res) => {
 mainRouter.get('/about', (req, res) => {
     try {
         res.render('pages/about.twig');
-    } catch (error) {
-        console.log(error);
-    }
-});
-
-// Définition de la route pour la page contact
-mainRouter.get('/contact', (req, res) => {
-    try {
-        res.render('pages/contact.twig');
     } catch (error) {
         console.log(error);
     }
