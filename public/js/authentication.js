@@ -10,7 +10,8 @@ document.querySelectorAll('.flip-btn').forEach(btn => {
         setTimeout(() => {
         if (card.classList.contains('is-flipped')) {
             frontFace.style.display = 'none';
-            backFace.style.display = 'flex';
+            backFace.style.display = 'block';
+            backFace.style.position = 'relative';
         } else {
             backFace.style.display = 'none';
             frontFace.style.display = 'block';

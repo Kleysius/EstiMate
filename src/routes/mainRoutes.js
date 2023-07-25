@@ -129,8 +129,14 @@ mainRouter.post('/update_account/:id', async (req, res) => {
 // Définition de la route pour le formulaire d'estimation
 mainRouter.get('/estimate', (req, res) => {
     try {
+
+        // Si l'utilisateur n'est pas connecté, on le redirige vers la page de connexion
+        if (!req.session.userId) {
+            res.redirect('/register');
+        } else {
         // On utilise la méthode 'render' pour rendre le fichier 'estimate.twig' situé dans le dossier 'pages'
         res.render('pages/estimate.twig');
+        }
     } catch (error) {
         console.log(error);
     }

@@ -54,17 +54,6 @@ registerRouter.post('/register', async (req, res) => {
     }
 });
 
-
-// route pour afficher la page de connexion
-registerRouter.get('/login', (req, res) => {
-    try {
-        res.render('pages/login.twig');
-    } catch (error) {
-        console.log(error);
-        res.send(error);
-    }
-});
-
 // route pour se connecter
 registerRouter.post('/login', async (req, res) => {
     try {
@@ -85,7 +74,7 @@ registerRouter.post('/login', async (req, res) => {
         }
     } catch (error) {
         console.log(error);
-        res.render('pages/login.twig', { error: error });
+        res.render('pages/register.twig', { error: error });
     }
 });
 
