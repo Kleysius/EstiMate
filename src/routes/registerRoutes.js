@@ -65,11 +65,11 @@ registerRouter.post('/login', async (req, res) => {
                 req.session.userId = user._id;
                 res.redirect('/dashboard');
             } else {
-                errors.password = 'Mot de passe incorrect';
+                errors.loginPassword = 'Mot de passe incorrect';
                 throw errors;
             }
         } else {
-            errors.email = 'Email incorrect ou inexistant';
+            errors.loginEmail = 'Email incorrect ou inexistant';
             throw errors;
         }
     } catch (error) {

@@ -17,7 +17,7 @@ main {
 .register-explanation {
     font-family: 'Hind Madurai', sans-serif;
     text-align: center;
-    max-width: 610px;
+    max-width: 580px;
     margin: auto;
     background: rgba(255, 255, 255, 0.375);
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
@@ -199,6 +199,7 @@ main {
 
 /* Bouton de sauvegarde de la sélection */
 #saveAvatarSelection {
+    font-family: Hind Madurai, sans-serif;
     display: block;
     margin: 20px auto 0;
     padding: 10px 20px;
@@ -243,7 +244,7 @@ main {
 }
 
 .input-field input:focus {
-    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 3px #b5c9fc;
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.1), 0 0 0 3px rgb(181, 201, 252);
 }
 
 .error-message {
@@ -279,7 +280,7 @@ main {
     background-color: #FF4000;
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     color: var(--white);
     padding: 10px 20px;
     cursor: pointer;
@@ -301,4 +302,175 @@ main {
     color: var(--orange);
     text-decoration: none;
     font-weight: 600;
+}
+
+@media screen and (max-width: 1120px) {
+    main {
+        flex-direction: column;
+        margin: 1rem;
+        gap: 1rem;
+    }
+
+    .register-explanation {
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .register-explanation {
+        max-width: 500px;
+        padding: 1.5rem;
+        box-shadow: none;
+    }
+
+    .register-explanation h1 {
+        font-size: 1.75em;
+    }
+
+    .register-explanation p {
+        font-size: 0.9em;
+        line-height: 1.5em;
+    }
+
+    .auth-form {
+        padding: 1.5rem;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .auth-title {
+        font-size: 1.75em;
+    }
+
+    .input-field {
+        margin-bottom: 10px;
+    }
+
+    .input-field label {
+        font-size: 0.95em;
+        margin-bottom: 2px;
+    }
+
+    .input-field input {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .submit-button input {
+        font-size: 1em;
+    }
+
+    /* modale avatars */
+    .modal-content {
+        width: 90%;
+    }
+
+    .avatar-selection {
+        grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+        gap: 5px;
+    }
+
+    .avatar-option img {
+        width: 65px;
+    }
+
+    .avatar-preview {
+        width: 65px;
+    }
+
+    #openAvatarModal {
+        font-size: 0.9em;
+    }
+
+    #saveAvatarSelection {
+        font-size: 0.9em;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    main {
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem;
+    }
+
+    .register-explanation {
+        padding: 1rem;
+        box-shadow: none;
+    }
+
+    .register-explanation h1 {
+        font-size: 1.5em;
+    }
+
+    .register-explanation p {
+        font-size: 0.8em;
+        line-height: 1.5em;
+    }
+
+    .auth-form {
+        padding: 1rem;
+        box-shadow: none;
+        backdrop-filter: none;
+    }
+
+    .auth-title {
+        font-size: 1.5em;
+    }
+
+    .input-field {
+        margin-bottom: 10px;
+    }
+
+    .input-field label {
+        font-size: 0.9em;
+        margin-bottom: 2px;
+    }
+
+    .input-field input {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .submit-button input {
+        font-size: 1em;
+        padding: 8px 16px;
+    }
+
+    .login-link {
+        font-size: 0.8em;
+    }
+
+    /* modale avatars */
+    .modal-content {
+        width: 100%;
+    }
+
+    .avatar-selection {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 5px;
+    }
+
+    .avatar-option img {
+        width: 50px;
+    }
+
+    .avatar-preview {
+        width: 50px;
+    }
+
+    #openAvatarModal {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    #saveAvatarSelection {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
 }

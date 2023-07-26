@@ -82,3 +82,17 @@
         border-radius: 50%;
     }
 }
+
+@media only screen and (max-width: 768px) {
+    #radius-shape-1 {
+        display: none;
+    }
+
+    #radius-shape-2 {
+        display: none;
+    }
+
+    #radius-shape-3 {
+        display: none;
+    }
+}

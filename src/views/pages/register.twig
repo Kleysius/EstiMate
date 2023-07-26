@@ -102,19 +102,19 @@
 
 					<div class="input-field">
 						<label for="email">Email</label>
-						<input type="email" id="log-email" name="email" placeholder="Entrez votre email" required value="{{ user.email }}" class="{{ error.email ? 'input-error' : '' }}">
-						{% if error.email %}
+						<input type="email" id="log-email" name="email" placeholder="Entrez votre email" required value="{{ user.email }}" class="{{ error.loginEmail ? 'input-error' : '' }}">
+						{% if error.loginEmail %}
 							<i class="fa fa-exclamation-triangle error-icon"></i>
-							<div class="error-message">{{ error.email }}</div>
+							<div class="error-message">{{ error.loginEmail }}</div>
 						{% endif %}
 					</div>
 
 					<div class="input-field">
 						<label for="password">Mot de passe</label>
-						<input type="password" id="log-password" name="password" placeholder="Entrez un mot de passe" required class="{{ error.password ? 'input-error' : '' }}">
-						{% if error.password %}
+						<input type="password" id="log-password" name="password" placeholder="Entrez votre mot de passe" required class="{{ error.loginPassword ? 'input-error' : '' }}">
+						{% if error.loginPassword %}
 							<i class="fa fa-exclamation-triangle error-icon"></i>
-							<div class="error-message">{{ error.password }}</div>
+							<div class="error-message">{{ error.loginPassword }}</div>
 						{% endif %}
 					</div>
 
@@ -155,4 +155,5 @@
 
 {% block scripts %}
 	<script src="/js/authentication.js"></script>
+	<script src="/js/headerFooter.js"></script>
 {% endblock %}
