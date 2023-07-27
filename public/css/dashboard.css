@@ -198,17 +198,21 @@ body {
     box-shadow: var(--shadow);
 }
 
-#account-button {
+.account-button {
     width: 100%;
     height: 100%;
-    transition: all 0.2s ease;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
-#account-button img {
+.account-button img {
     width: 100%;
     height: 100%;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease-in-out;
+}
+
+.account-button:hover img {
+    transform: rotate(360deg);
 }
 
 .account-info-name {
@@ -356,9 +360,10 @@ body {
 }
 
 .estimate-result {
+    display: flex;
+    align-items: center;
     font-size: 1rem;
     color: var(--dark-gray);
-    margin-bottom: 10px;
 }
 
 .estimate-price {
@@ -366,6 +371,7 @@ body {
     color: var(--white);
     background: var(--light-green);
     padding: 5px 10px;
+    margin-left: 10px;
     border-radius: 10px;
 }
 
@@ -387,9 +393,7 @@ body {
 }
 
 .estimate_email {
-    position: absolute;
-    top: 34px;
-    right: 70px;
+    margin-left: 10px;
     cursor: pointer;
 }
 
@@ -399,7 +403,7 @@ body {
 }
 
 .estimate_email:hover i {
-    transform: scale(1.2);
+    transform: scale(1.05);
 }
 
 .email-base {
@@ -459,12 +463,16 @@ body {
 
 .estimate-table th,
 .estimate-table td {
-    font-size: 0.9em;
-    padding: 5px;
+    padding: 3px;
     border-bottom: 1px solid #c8c8c8;
 }
 
+.estimate-table td {
+    font-size: 0.8em;
+}
+
 .estimate-table th {
+    font-size: 0.9em;
     text-align: left;
     font-weight: bold;
 }
@@ -514,6 +522,15 @@ body {
 .form-field textarea {
     height: 150px;
     resize: none;
+}
+
+.avatar-field {
+    border: none;
+}
+
+.avatar-field legend {
+    font-size: 0.9em;
+    color: var(--app-content-main-color);
 }
 
 .form-submit {
@@ -812,7 +829,7 @@ body {
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 10;
 }
 
 #emoji-menu.show {
@@ -825,7 +842,16 @@ body {
     border-radius: 10px;
     padding: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
+    z-index: 10;
+}
+
+.emoji-list {
+    display: flex;
+}
+
+.emoji-list li {
+    height: 35px;
+    list-style: none;
 }
 
 .emoji {
@@ -1298,4 +1324,9 @@ body {
     to {
         opacity: 0;
     }
+}
+
+/* Media queries */
+@media screen and (max-width: 768px) {
+    
 }

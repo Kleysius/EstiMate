@@ -40,8 +40,8 @@ app.use(session({
 app.use(cookieParser());
 
 app.use(function(req, res, next) {
-    res.locals.session = req.session;
-    // req.session.userId = "64b4f702214a4cce267fbb23";
+    // res.locals.session = req.session;
+    req.session.userId = "64b4f702214a4cce267fbb23";
     next();
 });
 

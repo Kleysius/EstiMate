@@ -9,10 +9,12 @@ document.querySelectorAll('.flip-btn').forEach(btn => {
         
         setTimeout(() => {
         if (card.classList.contains('is-flipped')) {
+            card.style.backdropFilter = 'none';
             frontFace.style.display = 'none';
             backFace.style.display = 'block';
             backFace.style.position = 'relative';
         } else {
+            card.style.backdropFilter = 'blur(10px)';
             backFace.style.display = 'none';
             frontFace.style.display = 'block';
         }
@@ -72,7 +74,7 @@ window.addEventListener('load', function () {
         reset: true
     });
 
-    ScrollReveal().reveal('.auth-form', {
+    ScrollReveal().reveal('.container', {
         delay: 600,
         duration: 1500,
         origin: 'right',
