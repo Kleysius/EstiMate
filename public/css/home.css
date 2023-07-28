@@ -12,7 +12,7 @@ body {
     font-family: var(--font-family);
     color: var(--dark-color);
     background: var(--bg-gradient);
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 header,
@@ -125,6 +125,7 @@ footer {
 
 @media only screen and (max-width: 1140px) {
     .overlay-container {
+        margin: 0.9rem 0;
         padding: 4rem;
     }
 }

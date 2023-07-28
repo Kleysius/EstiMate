@@ -20,6 +20,7 @@ body {
 
 .content-section {
     background: rgba(255, 255, 255, 0.375);
+    backdrop-filter: blur(10px);
     color: var(--dark-blue);
     text-align: justify;
     padding: 2rem;
@@ -120,10 +121,21 @@ body {
     transition: transform 0.2s ease-in-out;
 }
 
+@media screen and (max-width: 1250px) {
+    main {
+        margin: 80px 0;
+    }
+
+    .content-wrap {
+        gap: 80px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     main {
         margin: 60px 0;
     }
+
     .content-wrap {
         gap: 60px;
         align-items: center;

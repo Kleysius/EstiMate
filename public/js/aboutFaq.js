@@ -31,7 +31,7 @@ window.addEventListener('load', function () {
     });
 
     ScrollReveal().reveal('.content-section.two', {
-        delay: 400,
+        delay: 600,
         duration: 1500,
         origin: 'right',
         distance: '100px',

@@ -83,3 +83,25 @@ function addSelectedClass(id) {
 
 // Appelle la fonction addSelectedClass pour les éléments avec les ids 'support_pack' et 'page_number'
 ['support_pack', 'page_number'].forEach(addSelectedClass);
+
+document.querySelectorAll('.pack-card .card-header').forEach((header) => {
+    header.addEventListener('click', (event) => {
+        const content = header.nextElementSibling;
+        content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+    });
+});
+
+function makeCardsCollapsible() {
+    if (window.innerWidth < 768) {
+        document.querySelectorAll('.pack-card .card-header').forEach((header) => {
+            header.addEventListener('click', (event) => {
+                const content = header.nextElementSibling;
+                content.style.maxHeight = content.style.maxHeight ? null : content.scrollHeight + 'px';
+            });
+        });
+    }
+}
+
+makeCardsCollapsible();
+
+window.addEventListener('resize', makeCardsCollapsible);

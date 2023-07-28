@@ -49,7 +49,7 @@ document.getElementById('estimate-link').addEventListener('click', function (e) 
 });
 
 // Gestion du clic sur le bouton 'account'
-document.querySelectorAll('#account-button').forEach(button => {
+document.querySelectorAll('.account-button').forEach(button => {
     button.addEventListener('click', function () {
         // Masquage de toutes les sections
         hideAllSections();
@@ -82,12 +82,14 @@ for (let i = 0; i < toggles.length; i++) {
             const tableContainerHeight = tableContainer.scrollHeight + "px";
             // Modification de la hauteur du conteneur de table pour l'afficher
             tableContainer.style.maxHeight = tableContainerHeight;
+            tableContainer.style.marginTop = "15px";
             // Changement de l'icône en '-'
             toggleIcon.classList.remove('fa-plus-circle');
             toggleIcon.classList.add('fa-minus-circle');
         } else {
             // Si le conteneur de table est visible, on le cache
             tableContainer.style.maxHeight = "0px";
+            tableContainer.style.marginTop = "0px";
             // Changement de l'icône en '+'
             toggleIcon.classList.add('fa-plus-circle');
             toggleIcon.classList.remove('fa-minus-circle');
@@ -346,4 +348,14 @@ document.getElementById('deleteMessages').addEventListener('click', async () => 
             }
         }
     }
+});
+
+let sidebarToggle = document.querySelector('.sidebar-toggle');
+let sidebarToggleI = document.querySelector('.sidebar-toggle i');
+let sidebar = document.querySelector('.sidebar');
+
+sidebarToggle.addEventListener('click', function () {
+    sidebar.classList.toggle('active');
+    sidebarToggle.classList.toggle('active');
+    sidebarToggleI.classList.toggle('active');
 });
