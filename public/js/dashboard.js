@@ -350,9 +350,9 @@ document.getElementById('deleteMessages').addEventListener('click', async () => 
     }
 });
 
-let sidebarToggle = document.querySelector('.sidebar-toggle');
-let sidebarToggleI = document.querySelector('.sidebar-toggle i');
-let sidebar = document.querySelector('.sidebar');
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebarToggleI = document.querySelector('.sidebar-toggle i');
+const sidebar = document.querySelector('.sidebar');
 
 sidebarToggle.addEventListener('click', function () {
     sidebar.classList.toggle('active');

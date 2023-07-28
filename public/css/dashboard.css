@@ -219,7 +219,6 @@ body {
 }
 
 .account-button {
-.account-button {
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -227,7 +226,6 @@ body {
     transition: all 0.2s ease;
 }
 
-.account-button img {
 .account-button img {
     width: 100%;
     height: 100%;
@@ -1524,6 +1522,7 @@ body {
         transform: translateX(-110%);
         transition: transform 0.5s ease-in-out;
     }
+
     .sidebar.active {
         transform: translateX(0);
         box-shadow: var(--shadow);
