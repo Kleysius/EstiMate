@@ -26,6 +26,20 @@ function hideAllSections() {
     tabs.forEach(tab => document.getElementById(`${tab}-section`).style.display = 'none');
 }
 
+// Fonction pour gérer le toggling
+function toggleSidebar() {
+    sidebar.classList.toggle('active');
+    sidebarToggle.classList.toggle('active');
+    sidebarToggleI.classList.toggle('active');
+}
+
+const sidebarToggle = document.querySelector('.sidebar-toggle');
+const sidebarToggleI = document.querySelector('.sidebar-toggle i');
+const sidebar = document.querySelector('.sidebar');
+
+// Ecouteur d'événement pour le bouton de la sidebar
+sidebarToggle.addEventListener('click', toggleSidebar);
+
 // Ajout d'un écouteur d'événements à chaque onglet
 tabs.forEach((tab, index) => {
     document.getElementById(`${tab}-tab`).addEventListener('click', function () {
@@ -37,6 +51,11 @@ tabs.forEach((tab, index) => {
         removeActiveClass();
         // Ajout de la classe 'active' à l'onglet cliqué
         this.classList.add('active');
+
+        // Fermeture de la sidebar
+        if (sidebar.classList.contains('active')) {
+            toggleSidebar();
+        }
     });
 });
 
@@ -59,6 +78,11 @@ document.querySelectorAll('.account-button').forEach(button => {
         removeActiveClass();
         // Ajout de la classe 'active' à l'onglet 'account'
         document.getElementById('account-tab').classList.add('active');
+
+        // Fermeture de la sidebar
+        if (sidebar.classList.contains('active')) {
+            toggleSidebar();
+        }
     });
 });
 
@@ -246,6 +270,14 @@ document.querySelectorAll('.emoji').forEach(function (emoji) {
 });
 
 document.addEventListener('click', function (event) {
+    // Gestion de la sidebar
+    let isClickInsideSidebar = sidebar.contains(event.target);
+    let isClickInsideToggle = sidebarToggle.contains(event.target);
+    if (!isClickInsideSidebar && !isClickInsideToggle && sidebar.classList.contains('active')) {
+        toggleSidebar();
+    }
+
+    // Gestion du menu emoji
     const menu = document.getElementById('emoji-menu');
     if (menu.classList.contains('show') && !menu.contains(event.target) && event.target.id !== 'smiley') {
         menu.classList.remove('show');
@@ -348,14 +380,4 @@ document.getElementById('deleteMessages').addEventListener('click', async () => 
             }
         }
     }
-});
-
-const sidebarToggle = document.querySelector('.sidebar-toggle');
-const sidebarToggleI = document.querySelector('.sidebar-toggle i');
-const sidebar = document.querySelector('.sidebar');
-
-sidebarToggle.addEventListener('click', function () {
-    sidebar.classList.toggle('active');
-    sidebarToggle.classList.toggle('active');
-    sidebarToggleI.classList.toggle('active');
 });

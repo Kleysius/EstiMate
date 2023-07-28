@@ -1552,3 +1552,57 @@ body {
         left: 5px;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .app-header {
+        height: 50px;
+        padding: 10px 18px;
+    }
+
+    .app-title h2 {
+        font-size: 0.7rem;
+    }
+
+    .new-estimate-btn {
+        font-size: 0.7rem;
+        padding: 8px;
+    }
+
+    .app-content {
+        left: 0;
+        padding: 10px;
+    }
+
+    .intro h2 {
+        font-size: 1.2rem;
+    }
+
+    .intro p {
+        font-size: 0.8rem;
+    }
+
+    .estimate-title {
+        font-size: 0.9rem;
+    }
+
+    .estimate-result {
+        font-size: 0.8rem;
+    }
+
+    .estimate_email i {
+        font-size: 1.1rem;
+    }
+
+    .deleteEstimate {
+        font-size: 1rem;
+    }
+
+    .toggle {
+        top: 57px;
+        right: 7px;
+    }
+
+    .toggle-icon {
+        font-size: 1.1rem;
+    }
+}
