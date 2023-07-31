@@ -57,10 +57,10 @@ body {
 .sidebar-toggle {
     display: none;
     position: absolute;
-    top: 40%;
+    top: 60%;
     left: 100%;
-    width: 40px;
-    height: 50px;
+    width: 35px;
+    height: 40px;
     border-radius: 0 10px 10px 0;
     background-color: var(--bright-blue);
     transition: all 0.5s ease-in-out;
@@ -70,7 +70,7 @@ body {
 
 .sidebar-toggle i {
     color: var(--app-content-secondary-color);
-    font-size: 22px;
+    font-size: 20px;
     transition: all 0.5s ease-in-out;
 }
 
@@ -1536,7 +1536,7 @@ body {
     }
 
     .sidebar-toggle.active {
-        transform: translateX(-40px);
+        transform: translateX(-35px);
         border-radius: 10px 0 0 10px;
     }
 
@@ -1560,12 +1560,52 @@ body {
     }
 
     .app-title h2 {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
     }
 
     .new-estimate-btn {
-        font-size: 0.7rem;
+        font-size: 0.65rem;
         padding: 8px;
+    }
+
+    .sidebar {
+        min-width: 110px;
+        border-top: 60px solid var(--bright-blue);
+    }
+
+    .sidebar-list-item a {
+        font-size: 0.75rem;
+        padding: 12px 10px;
+    }
+
+    .sidebar-list-item i {
+        font-size: 15px;
+    }
+
+    .account-info-picture {
+        width: 65px;
+        height: 65px;
+    }
+
+    .account-info {
+        margin-top: -103px;
+    }
+
+    .account-info-name {
+        font-size: 0.9em;
+    }
+
+    .sidebar-footer {
+        height: 155px;
+    }
+
+    .sidebar-footer-item {
+        width: 35px;
+        height: 35px;
+    }
+
+    .sidebar-footer-item i {
+        font-size: 16px;
     }
 
     .app-content {
@@ -1581,6 +1621,15 @@ body {
         font-size: 0.8rem;
     }
 
+    .card {
+        padding: 10px;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+
     .estimate-title {
         font-size: 0.9rem;
     }
@@ -1591,6 +1640,10 @@ body {
 
     .estimate_email i {
         font-size: 1.1rem;
+    }
+
+    #estimate-section {
+        gap: 10px;
     }
 
     .deleteEstimate {
@@ -1604,5 +1657,155 @@ body {
 
     .toggle-icon {
         font-size: 1.1rem;
+    }
+
+    .app-icon img {
+        width: 20px;
+    }
+
+    .avatar-modal-content {
+        width: 95%;
+    }
+
+    .avatar-selection {
+        grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+        gap: 5px;
+    }
+
+    .avatar-option img {
+        width: 50px;
+    }
+
+    .avatar-preview {
+        width: 50px;
+        height: 50px;
+    }
+
+    #openAvatarModal {
+        font-size: 0.8em;
+        padding: 5px 10px;
+    }
+
+    #saveAvatarSelection {
+        font-size: 0.9em;
+        padding: 8px 16px;
+    }
+
+    .messagerie {
+        padding: 15px;
+    }
+
+    .message-avatar {
+        width: 35px;
+    }
+
+    .message {
+        max-width: 85%;
+    }
+
+    .bubble p {
+        font-size: 0.8rem;
+    }
+
+    .emoji-list li {
+        height: 30px;
+    }
+
+    #emoji-menu.show {
+        left: -30px;
+        padding: 5px;
+    }
+
+    .message-input-container {
+        padding: 5px 10px;
+    }
+
+    .message-input-container img {
+        width: 20px;
+    }
+
+    #message-input {
+        font-size: 0.8rem;
+    }
+
+    .emoji {
+        width: 20px;
+    }
+
+    #send-message button {
+        font-size: 1.2em;
+        padding: 5px 10px;
+    }
+
+    .contactUs {
+        width: auto;
+        padding: 15px;
+    }
+
+    .contactUs .fa-message {
+        font-size: 1.3rem;
+    }
+
+    .contactUs h2 {
+        font-size: 1.1rem;
+    }
+
+    .contactUs p {
+        font-size: 0.8em;
+    }
+
+    .contactUs .btn-contact {
+        padding: 10px;
+        font-size: 0.8em;
+    }
+
+    .message-container-header {
+        padding: 10px;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .message-search {
+        display: none;
+    }
+
+    .messageContainer {
+        border-radius: 0 0 10px 10px;
+    }
+
+    .avatar {
+        width: 35px;
+        height: 35px;
+    }
+
+    .preview-subject {
+        font-size: 0.9rem;
+        margin: 0;
+    }
+
+    .preview-message,
+    .message-status {
+        font-size: 0.8em;
+    }
+
+    .message-preview:last-child {
+        border-bottom: 2px solid #ccc;
+    }
+
+    .full-subject {
+        font-size: 1.1rem;
+    }
+
+    .message-content {
+        padding: 10px 0px;
+    }
+
+    .message-body {
+        max-width: 80%;
+        padding: 0.7em;
+        margin: 30px 30px 0;
+    }
+
+    .full-message {
+        font-size: 0.9rem;
     }
 }

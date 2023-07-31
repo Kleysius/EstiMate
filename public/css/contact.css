@@ -3,21 +3,19 @@ body {
     font-family: var(--font-family);
     background: rgb(181, 175, 255);
     background: linear-gradient(45deg, rgba(181, 175, 255, 1) 0%, rgba(255, 198, 179, 1) 100%);
-    overflow-x: hidden;
-}
-
-.contact-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: hidden;
 }
 
 .form-container {
     background: rgba(255, 255, 255, 0.375);
     border-radius: 2rem;
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-    width: 80%;
+    width: 100%;
     max-width: 850px;
     display: flex;
 }
@@ -146,10 +144,6 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    .contact-form {
-        padding: 1rem;
-    }
-
     .form-container {
         flex-direction: column;
     }
