@@ -1,0 +1,135 @@
+{% extends "/base.twig" %}
+
+{% block title %}Résultat de l'estimation
+{% endblock %}
+
+{% block styles %}
+	<link rel="stylesheet" href="/css/result.css">
+{% endblock %}
+
+{% block content %}
+	<div class="result-header">
+		<a href="/">
+			<img src="/img/logoestimate.svg" alt="logo">
+		</a>
+		<h1>Résultat de l'estimation</h1>
+		<p>Nom du projet :
+			<strong>{{ estimate.website_name }}</strong>
+		</p>
+	</div>
+
+	<div class="card-container">
+		<div class="freelancer-card beginner">
+			<div class="border one"></div>
+			<div class="icon-level">
+				<i class="fa-solid fa-seedling"></i>
+			</div>
+			<div class="freelancer-card-header">
+				<h2>Freelance débutant</h2>
+				<p class="result-price one">{{ estimate.total_price * 0.8 }}€</p>
+			</div>
+			<div class="content">
+				<ul>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Apporte une approche fraîche et créative</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Disponible pour un suivi régulier et une relation de proximité</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Coûts plus abordables par rapport à une agence</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-minus"></i>
+						Peut manquer d'expérience dans la gestion de projets complexes</li>
+					<li>
+						<i class="fa-solid fa-minus"></i>
+						Certaines compétences techniques peuvent être limitées</li>
+				</ul>
+			</div>
+			<p class="daily-rate">Taux journalier moyen : 350€</p>
+		</div>
+
+		<div class="freelancer-card intermediate">
+			<div class="border two"></div>
+			<div class="icon-level">
+				<i class="fa-solid fa-cogs"></i>
+			</div>
+			<div class="freelancer-card-header">
+				<h2>Freelance intermédiaire</h2>
+				<p class="result-price two">{{ estimate.total_price * 1 }}€</p>
+			</div>
+			<div class="content">
+				<ul>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Possède une solide expérience dans la création de sites web</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Gestion de projets plus fluide et organisée</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Prix compétitif et équilibré par rapport aux compétences offertes</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-minus"></i>
+						Peut avoir des disponibilités limitées pour certains projets urgents</li>
+					<li>
+						<i class="fa-solid fa-minus"></i>
+						Certaines compétences très spécialisées peuvent faire défaut</li>
+				</ul>
+			</div>
+			<p class="daily-rate">Taux journalier moyen : 500€</p>
+		</div>
+
+		<div class="freelancer-card senior">
+			<div class="border three"></div>
+			<div class="icon-level">
+				<i class="fa-solid fa-star"></i>
+			</div>
+			<div class="freelancer-card-header">
+				<h2>Freelance expert</h2>
+				<p class="result-price three">{{ estimate.total_price * 1.2 }}€</p>
+			</div>
+			<div class="content">
+				<ul>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Maîtrise complète de tous les aspects de la création de site web</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Capable de gérer des projets complexes avec efficacité</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-plus"></i>
+						<strong>Fournit des solutions innovantes et hautement personnalisées</strong>
+					</li>
+					<li>
+						<i class="fa-solid fa-minus"></i>
+						Tarifs plus élevés en raison de l'expertise et de la qualité</li>
+					<li>
+						<i class="fa-solid fa-minus"></i>
+						Peut être moins disponible pour une relation de proximité constante</li>
+				</ul>
+			</div>
+			<p class="daily-rate">Taux journalier moyen : 650€</p>
+		</div>
+	</div>
+
+	<div class="link-dashboard">
+		<p>Retrouvez l'estimation complète sur votre tableau de bord en cliquant sur le bouton ci-dessous.</p>
+		<p>Vous pouvez également être mis en contact avec un développeur freelance via la messagerie de votre tableau de bord.</p>
+		<a href="/dashboard" class="button">Mon tableau de bord</a>
+	</div>
+
+{% endblock %}
+
+{% block scripts %}
+	<script src="/js/result.js"></script>
+{% endblock %}

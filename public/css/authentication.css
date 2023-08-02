@@ -410,11 +410,14 @@ main {
 
     .register-explanation p {
         font-size: 0.8em;
-        line-height: 1.5em;
+        line-height: 2em;
+    }
+
+    .card {
+        padding: 1rem;
     }
 
     .auth-form {
-        padding: 1rem;
         box-shadow: none;
         backdrop-filter: none;
     }

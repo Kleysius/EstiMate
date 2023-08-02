@@ -425,11 +425,6 @@ body {
 
 .estimate_email i {
     font-size: 1.5em;
-    transition: transform 0.2s ease;
-}
-
-.estimate_email:hover i {
-    transform: scale(1.05);
 }
 
 .email-base {
@@ -1245,7 +1240,7 @@ body {
 .modal {
     display: none;
     position: fixed;
-    z-index: 2;
+    z-index: 200;
     padding-top: 100px;
     left: 0;
     top: 0;

@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 
 const estimateSchema = new mongoose.Schema({
+    createdAt: {
+        type: Date,
+        default: Date.now
+    },
     website_name: {
         type: String,
         required: true,
@@ -176,38 +180,33 @@ const prices = {
 };
 
 estimateSchema.methods.calculateTotalPrice = function () {
-    let totalPrice = 0;
+    // On initialise la variable totalPrice à 0 pour accumuler le coût total.
+    const totalPrice = Object.entries(prices).reduce((acc, [category, values]) => {
+        // On utilise Object.entries() pour transformer le tableau prices en un tableau de paires [clé, valeur].
+        // Ensuite, on utilise la méthode reduce() pour itérer à travers chaque catégorie et sa valeur correspondante dans prices.
 
-    totalPrice += prices.website_type[this.website_type] || 0;
-    totalPrice += prices.mockup[this.mockup] || 0;
-    totalPrice += prices.graphic_design[this.graphic_design] || 0;
-    totalPrice += prices.customization[this.customization] || 0;
-    totalPrice += prices.content[this.content] || 0;
-    totalPrice += prices.page_number[this.page_number] || 0;
+        if (category === 'special_pages' || category === 'third_party_services' || category === 'security_services') {
+            // Pour les catégories spéciales (special_pages, third_party_services, security_services),
+            // nous utilisons forEach() pour itérer à travers chaque élément du tableau correspondant dans l'objet this.
 
-    for (let i = 0; i < this.special_pages.length; i++) {
-        totalPrice += prices.special_pages[this.special_pages[i]] || 0;
-    }
+            this[category].forEach(item => {
+                // On ajoute la valeur correspondante à l'accumulateur acc pour chaque élément du tableau.
+                // Si la valeur n'existe pas dans prices, on ajoute 0 pour éviter une valeur NaN.
 
-    totalPrice += prices.multilingual[this.multilingual] || 0;
-    totalPrice += prices.language_count[this.language_count] || 0;
-    totalPrice += prices.currency_conversion[this.currency_conversion] || 0;
-    totalPrice += prices.location_based_content[this.location_based_content] || 0;
+                acc += values[item] || 0;
+            });
+        } else {
+            // Pour les autres catégories, on ajoute simplement la valeur correspondante à l'accumulateur acc.
+            // Si la valeur n'existe pas dans prices, on ajoute 0 pour éviter une valeur NaN.
 
-    for (let i = 0; i < this.third_party_services.length; i++) {
-        totalPrice += prices.third_party_services[this.third_party_services[i]] || 0;
-    }
+            acc += values[this[category]] || 0;
+        }
 
-    totalPrice += prices.user_auth[this.user_auth] || 0;
+        return acc; // On retourne l'accumulateur pour la prochaine itération.
+    }, 0); // 0 est la valeur initiale de l'accumulateur.
 
-    for (let i = 0; i < this.security_services.length; i++) {
-        totalPrice += prices.security_services[this.security_services[i]] || 0;
-    }
-
-    totalPrice += prices.support_pack[this.support_pack] || 0;
-
-    this.total_price = totalPrice;
-    return this.save();
+    this.total_price = totalPrice; // On met à jour la propriété total_price de l'objet en cours avec le coût total calculé.
+    return this.save(); // On sauvegarde l'objet en cours dans la base de données et on retourne une promesse.
 };
 
 const estimateModel = mongoose.model('estimate', estimateSchema);

@@ -50,7 +50,7 @@ mainRouter.get('/dashboard', async (req, res) => {
             res.cookie('visited', true, { maxAge: 365 * 24 * 60 * 60 * 1000, httpOnly: true });
             welcomeMessage = 'Bienvenue';
         }
-        
+
         const avatarsDirectory = path.join(__dirname, '../../public/avatars');
         fs.readdir(avatarsDirectory, (err, files) => {
             if (err) {
@@ -103,6 +103,23 @@ mainRouter.get('/dashboard/estimates', async (req, res) => {
     }
 });
 
+mainRouter.get('/result', async (req, res) => {
+    try {
+        // On cherche l'estimation la plus récente associée à cet utilisateur
+        let latestEstimate = await estimateModel.findOne({ user: req.session.userId }).sort({ createdAt: -1 });
+
+        if (!latestEstimate) {
+            res.redirect('/estimate');
+        }
+
+        // On utilise la méthode 'render' pour rendre le fichier 'result.twig' situé dans le dossier 'pages'
+        res.render('pages/result.twig', { estimate: latestEstimate });
+    } catch (error) {
+        res.send(error);
+        console.log(error);
+    }
+});
+
 // Mise à jour du compte
 mainRouter.post('/update_account/:id', async (req, res) => {
     try {
@@ -134,8 +151,8 @@ mainRouter.get('/estimate', (req, res) => {
         if (!req.session.userId) {
             res.redirect('/register');
         } else {
-        // On utilise la méthode 'render' pour rendre le fichier 'estimate.twig' situé dans le dossier 'pages'
-        res.render('pages/estimate.twig');
+            // On utilise la méthode 'render' pour rendre le fichier 'estimate.twig' situé dans le dossier 'pages'
+            res.render('pages/estimate.twig');
         }
     } catch (error) {
         console.log(error);
