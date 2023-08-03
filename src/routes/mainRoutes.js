@@ -177,5 +177,14 @@ mainRouter.get('/faq', (req, res) => {
     }
 });
 
+// Conditions générales d'utilisation
+mainRouter.get('/terms', (req, res) => {
+    try {
+        res.render('pages/terms.twig');
+    } catch (error) {
+        console.log(error);
+    }
+});
+
 // On exporte le routeur pour pouvoir l'utiliser dans notre application principale
 module.exports = mainRouter;
