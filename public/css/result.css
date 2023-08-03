@@ -208,6 +208,101 @@ main {
     background-color: #4d8ff2;
 }
 
+/* Loader */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-container img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 4rem;
+}
+
+.loader-text {
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.loader-text i {
+    font-size: 2rem;
+    margin-left: 10px;
+    color: chartreuse;
+}
+
+.result-loader {
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.bar {
+    height: 5px;
+    width: 12px;
+    animation-duration: 0.45s;
+    animation-name: changeHeight;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.red {
+    background-color: #E50000;
+    box-shadow: 1px 1px 10px #E50000;
+    animation-delay: 0.10s;
+}
+
+.orange {
+    background-color: #FF8D00;
+    box-shadow: 1px 1px 10px #FF8D00;
+    animation-delay: 0.20s;
+}
+
+.yellow {
+    background-color: #FFEE00;
+    box-shadow: 1px 1px 10px #FFEE00;
+    animation-delay: 0.25s;
+}
+
+.green {
+    background-color: #008121;
+    box-shadow: 1px 1px 10px #008121;
+    animation-delay: 0.30s;
+}
+
+.blue {
+    background-color: #004CFF;
+    box-shadow: 1px 1px 10px #004CFF;
+    animation-delay: 0.35s;
+}
+
+.violet {
+    background-color: #760188;
+    box-shadow: 1px 1px 10px #760188;
+    animation-delay: 0.40s;
+}
+
+@keyframes changeHeight {
+    from {
+        height: 5px;
+    }
+
+    to {
+        height: 40px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .result-header img {
         width: 40px;
@@ -305,13 +400,24 @@ main {
     .button {
         font-size: 0.9rem;
     }
+
+    .loader-container img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .loader-text {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
+
     .result-header,
     .card-container {
         margin-bottom: 1rem;
     }
+
     .result-header h1 {
         font-size: 1.4rem;
     }
@@ -360,4 +466,12 @@ main {
         font-size: 0.9rem;
     }
 
+    .loader-container img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .loader-text {
+        font-size: 1rem;
+    }
 }

@@ -20,3 +20,19 @@ cards.forEach((card) => {
         }
     });
 });
+
+/* Loader */
+const loaderContainer = document.querySelector('.loader-container');
+const resultLoader = document.querySelector('.result-loader');
+const estimationText = document.querySelector('.loader-text');
+
+function afficherDashboardLoader() {
+    const dashboardLoader = document.getElementById('dashboard-loader');
+
+    dashboardLoader.style.display = 'flex';
+    resultLoader.style.display = 'flex';
+
+    setTimeout(function () {
+        window.location.href = "/dashboard";
+    }, 3000);
+}

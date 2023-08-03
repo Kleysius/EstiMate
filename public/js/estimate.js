@@ -105,3 +105,20 @@ function makeCardsCollapsible() {
 makeCardsCollapsible();
 
 window.addEventListener('resize', makeCardsCollapsible);
+
+function afficherResultatLoader() {
+    const loaderContainer = document.querySelector('.loader-container');
+    const resultLoader = document.querySelector('.result-loader');
+    const estimationText = document.querySelector('.loader-text');
+
+    loaderContainer.style.display = 'flex';
+
+    setTimeout(function () {
+        estimationText.innerHTML = 'Estimation calculée ! <i class="fas fa-check"></i>';
+        resultLoader.style.display = 'none';
+    }, 3000);
+
+    setTimeout(function () {
+        window.location.href = '/result';
+    }, 4000);
+}

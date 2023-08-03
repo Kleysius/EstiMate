@@ -125,7 +125,20 @@
 	<div class="link-dashboard">
 		<p>Retrouvez l'estimation complète sur votre tableau de bord en cliquant sur le bouton ci-dessous.</p>
 		<p>Vous pouvez également être mis en contact avec un développeur freelance via la messagerie de votre tableau de bord.</p>
-		<a href="/dashboard" class="button">Mon tableau de bord</a>
+		<a href="#" class="button" onclick="afficherDashboardLoader()">Mon tableau de bord</a>
+	</div>
+
+	<div id="dashboard-loader" class="loader-container" style="display: none;">
+		<img src="/img/logoestimate.svg" alt="logo">
+		<div class="loader-text">Chargement de votre tableau de bord . . .</div>
+		<div class="result-loader">
+			<div class="red bar"></div>
+			<div class="orange bar"></div>
+			<div class="yellow bar"></div>
+			<div class="green bar"></div>
+			<div class="blue bar"></div>
+			<div class="violet bar"></div>
+		</div>
 	</div>
 
 {% endblock %}

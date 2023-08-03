@@ -340,44 +340,64 @@ function openMessage(id) {
     }
 }
 
-document.getElementById('deleteMessages').addEventListener('click', async () => {
-    // Récupération de tous les checkboxes
-    const checkboxes = document.querySelectorAll('.message-checkbox');
+// Fonction pour supprimer un message
+if (document.getElementById('deleteMessages')) {
+    document.getElementById('deleteMessages').addEventListener('click', async () => {
+        // Récupération de tous les checkboxes
+        const checkboxes = document.querySelectorAll('.message-checkbox');
 
-    // Parcourir chaque checkbox pour trouver celles qui sont cochées
-    for (let checkbox of checkboxes) {
-        if (checkbox.checked) {
-            // Extraire l'ID du message de l'ID de la checkbox
-            const messageId = checkbox.id.replace('message-checkbox-', '');
+        // Parcourir chaque checkbox pour trouver celles qui sont cochées
+        for (let checkbox of checkboxes) {
+            if (checkbox.checked) {
+                // Extraire l'ID du message de l'ID de la checkbox
+                const messageId = checkbox.id.replace('message-checkbox-', '');
 
-            // Effectuer la requête DELETE
-            try {
-                const response = await fetch(`/contact/delete-message/${messageId}`, { method: 'DELETE' });
+                // Effectuer la requête DELETE
+                try {
+                    const response = await fetch(`/contact/delete-message/${messageId}`, { method: 'DELETE' });
 
-                // Si la requête a réussi, appliquer l'animation de fadeout et supprimer le message de la liste
-                if (response.ok) {
-                    const messageElementFull = document.getElementById(`message${messageId}`);
-                    const messageElementPreview = document.querySelector(`.message-preview[onclick="openMessage('${messageId}')"]`);
+                    // Si la requête a réussi, appliquer l'animation de fadeout et supprimer le message de la liste
+                    if (response.ok) {
+                        const messageElementFull = document.getElementById(`message${messageId}`);
+                        const messageElementPreview = document.querySelector(`.message-preview[onclick="openMessage('${messageId}')"]`);
 
-                    messageElementFull.classList.add('fadeout');
-                    if (messageElementPreview) {
-                        messageElementPreview.classList.add('fadeout');
-                    }
-
-                    // Après que l'animation soit terminée, supprimer les éléments
-                    setTimeout(() => {
-                        messageElementFull.remove();
+                        messageElementFull.classList.add('fadeout');
                         if (messageElementPreview) {
-                            messageElementPreview.remove();
+                            messageElementPreview.classList.add('fadeout');
                         }
-                    }, 500); // 500 est la durée de l'animation en millisecondes
 
-                } else {
-                    console.error('Erreur lors de la suppression du message');
+                        // Après que l'animation soit terminée, supprimer les éléments
+                        setTimeout(() => {
+                            messageElementFull.remove();
+                            if (messageElementPreview) {
+                                messageElementPreview.remove();
+                            }
+                        }, 500); // 500 est la durée de l'animation en millisecondes
+
+                    } else {
+                        console.error('Erreur lors de la suppression du message');
+                    }
+                } catch (error) {
+                    console.error('Erreur lors de la suppression du message', error);
                 }
-            } catch (error) {
-                console.error('Erreur lors de la suppression du message', error);
             }
         }
-    }
-});
+    });
+}
+
+// Récupérez la référence de l'élément d'entrée de recherche
+// const searchInput = document.getElementById('search');
+
+// // Ajoutez un écouteur d'événement pour l'événement de saisie
+// searchInput.addEventListener('input', (event)=>{
+//     // Récupérez la valeur de l'entrée de recherche
+//     const searchValue = event.target.value;
+//     let response = fetch(`/dashboard?search=${searchValue}`, { method: 'GET' })
+//    let data = await response.json();
+//     .then(data => {
+//         console.log(data);
+//         // Mettre à jour le contenu de la page avec les données renvoyées par la requête fetch
+        
+//     })
+//     .catch(error => console.error(error));
+// });

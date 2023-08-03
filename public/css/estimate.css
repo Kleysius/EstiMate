@@ -706,6 +706,92 @@ input[type=range]:focus::-ms-fill-upper {
     animation: progressBar 2s linear infinite;
 }
 
+/* Loader */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #212121;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-container img {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 4rem;
+}
+
+.loader-text {
+    font-family: var(--font-family);
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 4rem;
+}
+
+.loader-text i {
+    font-size: 2rem;
+    margin-left: 10px;
+    color: chartreuse;
+}
+
+.result-loader {
+    height: 50px;
+    display: flex;
+    align-items: flex-end;
+    gap: 3px;
+}
+
+.bar {
+    height: 5px;
+    width: 12px;
+    animation-duration: 0.45s;
+    animation-name: changeHeight;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.red {
+    background-color: #E50000;
+    box-shadow: 1px 1px 10px #E50000;
+    animation-delay: 0.10s;
+}
+
+.orange {
+    background-color: #FF8D00;
+    box-shadow: 1px 1px 10px #FF8D00;
+    animation-delay: 0.20s;
+}
+
+.yellow {
+    background-color: #FFEE00;
+    box-shadow: 1px 1px 10px #FFEE00;
+    animation-delay: 0.25s;
+}
+
+.green {
+    background-color: #008121;
+    box-shadow: 1px 1px 10px #008121;
+    animation-delay: 0.30s;
+}
+
+.blue {
+    background-color: #004CFF;
+    box-shadow: 1px 1px 10px #004CFF;
+    animation-delay: 0.35s;
+}
+
+.violet {
+    background-color: #760188;
+    box-shadow: 1px 1px 10px #760188;
+    animation-delay: 0.40s;
+}
+
 /* Media Queries */
 @keyframes progressBar {
     0% {
@@ -714,6 +800,16 @@ input[type=range]:focus::-ms-fill-upper {
 
     100% {
         background-position: -35px -35px;
+    }
+}
+
+@keyframes changeHeight {
+    from {
+        height: 5px;
+    }
+
+    to {
+        height: 40px;
     }
 }
 
@@ -835,6 +931,15 @@ input[type=range]:focus::-ms-fill-upper {
         padding: 12px 24px;
         margin-top: 10px;
     }
+
+    .loader-container img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .loader-text {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -846,7 +951,7 @@ input[type=range]:focus::-ms-fill-upper {
         font-size: 1.2rem;
         margin-bottom: 10px;
     }
-    
+
     .question-title,
     #questionOne h3,
     #questionTwo .question-group h3,
@@ -881,7 +986,8 @@ input[type=range]:focus::-ms-fill-upper {
         padding: 3px;
     }
 
-    .card:hover, .card:hover p {
+    .card:hover,
+    .card:hover p {
         font-size: 0.6rem;
     }
 
@@ -935,12 +1041,14 @@ input[type=range]:focus::-ms-fill-upper {
         margin: 20px 0;
     }
 
-    .contentOne, .contentTwo {
+    .contentOne,
+    .contentTwo {
         height: 120px;
         padding: 15px;
     }
 
-    .contentOne label, .contentTwo label {
+    .contentOne label,
+    .contentTwo label {
         font-size: 0.9rem;
         margin-bottom: 10px;
     }
@@ -987,5 +1095,14 @@ input[type=range]:focus::-ms-fill-upper {
     .submitBtn {
         font-size: 0.9rem;
         padding: 10px 20px;
+    }
+
+    .loader-container img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .loader-text {
+        font-size: 1rem;
     }
 }

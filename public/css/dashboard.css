@@ -14,6 +14,7 @@
 }
 
 .dark:root {
+    --white: #43517187;
     --app-bg: #101827;
     --card: #1b2945;
     --sidebar: #1b2945;
@@ -38,19 +39,21 @@ body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--app-bg);
     overflow-x: hidden;
+    transition: all 0.5s ease;
 }
 
 .sidebar {
     position: fixed;
+    display: flex;
+    flex-direction: column;
     top: 80px;
     bottom: 15px;
     left: 10px;
     min-width: 200px;
     background-color: var(--sidebar);
-    border-radius: 40px;
-    display: flex;
     border-top: 90px solid var(--bright-blue);
-    flex-direction: column;
+    border-radius: 40px;
+    transition: all 0.5s ease;
     z-index: 100;
 }
 
@@ -173,6 +176,8 @@ body {
     justify-content: space-between;
     padding: 10px 30px;
     background-color: var(--sidebar);
+    box-shadow: var(--shadow);
+    transition: all 0.5s ease;
     z-index: 1;
 }
 
@@ -253,10 +258,12 @@ body {
     position: absolute;
     top: 80px;
     right: 0;
-    left: 220px;
+    bottom: 0;
+    left: 210px;
     font-family: 'Hind Madurai', sans-serif;
-    padding: 20px;
     color: var(--app-content-main-color);
+    padding: 20px;
+    transition: all 0.5s ease;
 }
 
 #estimate-section,
@@ -308,10 +315,10 @@ body {
 .card {
     background-color: var(--card);
     box-shadow: var(--shadow);
-    border-radius: 10px;
+    border-radius: 20px;
     width: 500px;
     padding: 1.5em;
-    transition: box-shadow 0.3s ease-in-out;
+    transition: all 0.5s ease;
 }
 
 .card:hover {
@@ -346,9 +353,9 @@ body {
     color: #fff;
     font-size: 14px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     padding: 10px 20px;
-    transition: 0.2s;
+    transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
@@ -360,9 +367,10 @@ body {
     position: relative;
     width: 550px;
     background-color: var(--card);
+    box-shadow: var(--shadow);
     border-radius: 10px;
     padding: 10px;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 .estimate-card:hover {
@@ -504,6 +512,7 @@ body {
 
 /* Compte Section */
 #account-section {
+    justify-content: center;
     gap: 20px;
     flex-wrap: wrap;
     align-items: flex-start;
@@ -557,16 +566,15 @@ body {
 .form-submit {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9em;
-    font-weight: 600;
     background-color: var(--bright-blue);
     width: auto;
     margin: 0 auto;
     color: white;
     padding: 0.5em 1em;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 .form-submit:hover,
@@ -621,14 +629,14 @@ body {
 
 #openAvatarModal {
     font-family: 'Hind Madurai', sans-serif;
-    padding: 8px 16px;
+    padding: 0.5em 1em;
     font-size: 0.9em;
     background-color: #00000029;
-    border-radius: 10px;
+    border-radius: 20px;
     color: var(--dark-gray);
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
 }
 
 #openAvatarModal:hover {
@@ -756,7 +764,7 @@ body {
 }
 
 .sent .bubble p {
-    color: var(--white);
+    color: #fefffe;
 }
 
 .received {
@@ -764,11 +772,12 @@ body {
 }
 
 .received .bubble {
-    background-color: #efefef;
+    background-color: var(--white);
+    transition: all 0.5s ease;
 }
 
 .received .bubble p {
-    color: var(--dark-blue);
+    color: var(--app-content-main-color);
 }
 
 #send-message {
@@ -803,7 +812,7 @@ body {
     border: 1px solid var(--light-gray);
     background-color: var(--white);
     cursor: pointer;
-    transition: border-color 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 .message-input-container:hover {
@@ -901,9 +910,9 @@ body {
     box-shadow: var(--shadow);
     width: 400px;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     margin: 20px auto;
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
 }
 
 .contactUs:hover {
@@ -935,10 +944,10 @@ body {
     background-color: var(--bright-blue);
     border: none;
     color: #fff;
-    border-radius: 10px;
+    border-radius: 20px;
     font-size: 1em;
     text-decoration: none;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.2s ease;
     cursor: pointer;
 }
 
@@ -999,6 +1008,8 @@ body {
     width: 100%;
     border-radius: 20px;
     box-shadow: var(--shadow);
+    background-color: var(--card);
+    transition: all 0.5s ease;
 }
 
 .message-container-header {
@@ -1007,7 +1018,6 @@ body {
     align-items: center;
     padding: 20px;
     border-bottom: 1px solid #ccc;
-    background-color: var(--card);
     border-radius: 20px 20px 0 0;
 }
 
@@ -1075,13 +1085,11 @@ body {
 .messageContainer {
     display: flex;
     max-width: 100%;
-    background-color: var(--card);
     border-radius: 0 0 20px 20px;
 }
 
 .messageSidebar {
     min-width: 370px;
-    background-color: var(--card);
     border-radius: 0 0 0 20px;
     border-right: 1px solid #ccc;
     overflow-y: scroll;

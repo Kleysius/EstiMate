@@ -560,10 +560,23 @@
 					</div>
 				</div>
 			</div>
-			<input type="submit" class="submitBtn" value="Obtenez votre estimation">
+			<input type="submit" class="submitBtn" value="Obtenez votre estimation" onclick="afficherResultatLoader()">
 		</section>
 
 	</form>
+
+	<div class="loader-container" style="display: none;">
+		<img src="/img/logoestimate.svg" alt="logo">
+		<div class="loader-text">Calcul de votre estimation . . .</div>
+		<div class="result-loader">
+			<div class="red bar"></div>
+			<div class="orange bar"></div>
+			<div class="yellow bar"></div>
+			<div class="green bar"></div>
+			<div class="blue bar"></div>
+			<div class="violet bar"></div>
+		</div>
+	</div>
 {% endblock %}
 
 {% block scripts %}

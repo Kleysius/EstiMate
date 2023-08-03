@@ -19,7 +19,6 @@ estimateRouter.post('/submit-estimation', async (req, res) => {
         newEstimate.createdAt = new Date();
         await newEstimate.calculateTotalPrice();
         await newEstimate.save();
-        res.redirect('/result');
     } catch (error) {
         res.send(error);
         console.log(error);

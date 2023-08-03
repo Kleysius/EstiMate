@@ -13,7 +13,8 @@
 	<div id="radius-shape-3"></div>
 
 	{# Sidebar #}
-	<nav class="sidebar">
+	<nav
+		class="sidebar">
 		{# Sidebar toggle #}
 		<div class="sidebar-toggle">
 			<i class="fa-solid fa-angle-right"></i>
@@ -456,8 +457,11 @@
 						</div>
 
 						<div class="message-search">
-							<input type="text" id="search" placeholder="Rechercher ...">
-							<i class="fa-solid fa-search"></i>
+							<form  method="get" action="/dashboard">
+								<label for="search"></label>
+								<input type="text" id="search" name="search" placeholder="Rechercher ...">
+								<i class="fa-solid fa-search"></i>
+							</form>
 						</div>
 
 						<div class="message-delete">
