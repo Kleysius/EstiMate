@@ -85,6 +85,7 @@ body {
 
 .sidebar-list-item {
     position: relative;
+    transition: all 0.5s ease;
 }
 
 .sidebar-list-item a {
@@ -135,7 +136,7 @@ body {
     border-radius: 10px;
     background-color: var(--card);
     box-shadow: var(--shadow);
-    transition: all 0.2s ease;
+    transition: all 0.5s ease;
     cursor: pointer;
 }
 
@@ -186,6 +187,7 @@ body {
     font-size: 1.3em;
     font-style: italic;
     color: var(--app-content-main-color);
+    transition: all 0.5s ease;
 }
 
 .firstname {
@@ -251,6 +253,7 @@ body {
     font-weight: 600;
     letter-spacing: 2px;
     color: var(--white);
+    transition: all 0.5s ease;
 }
 
 /* App Content */
@@ -306,6 +309,7 @@ body {
     text-decoration: none;
     color: var(--app-content-main-color);
     font-weight: 600;
+    transition: all 0.5s ease;
 }
 
 .card.chart h2 {

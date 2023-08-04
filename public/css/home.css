@@ -71,7 +71,8 @@ footer {
     font-size: 1.2em;
     background-image: linear-gradient(45deg,
             var(--base) 25%,
-            var(--complimentary2));
+            var(--complimentary));
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     -moz-background-clip: text;
@@ -127,7 +128,96 @@ footer {
     margin-left: 0.4rem;
 }
 
-/* Not too many browser support this yet but it's good to add! */
+/* Cookie Popup */
+.wrapper {
+    position: fixed;
+    bottom: 50px;
+    right: -370px;
+    max-width: 370px;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    padding: 15px 25px 22px;
+    transition: right 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999999;
+}
+
+.wrapper.show {
+    right: 20px;
+}
+
+.wrapper .popup-header {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+}
+
+.popup-header i {
+    color: #4070f4;
+    font-size: 2rem;
+}
+
+.popup-header h2 {
+    color: #4070f4;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.wrapper .data {
+    margin-top: 1rem;
+}
+
+.wrapper .data p {
+    color: #333;
+    line-height: 1.5;
+    font-size: 1rem;
+}
+
+.data p a {
+    color: #4070f4;
+    text-decoration: none;
+}
+
+.data p a:hover {
+    text-decoration: underline;
+}
+
+.wrapper .cookie-buttons {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cookie-buttons .cookie-button {
+    font-family: var(--font-family);
+    border: none;
+    color: #fff;
+    padding: 8px 0;
+    border-radius: 4px;
+    background: #4070f4;
+    cursor: pointer;
+    width: calc(100% / 2 - 10px);
+    transition: all 0.2s ease;
+}
+
+.cookie-buttons #acceptBtn:hover {
+    background-color: #034bf1;
+}
+
+#declineBtn {
+    border: 2px solid #4070f4;
+    background-color: #fff;
+    color: #4070f4;
+}
+
+#declineBtn:hover {
+    background-color: #4070f4;
+    color: #fff;
+}
+
 @media (prefers-contrast: high) {
     .orb-canvas {
         display: none;

@@ -122,11 +122,12 @@
 					<strong>Nouvelle estimation</strong>.</p>
 			</div>
 
+			{% if estimates %}
 			<div class="card chart">
 				<h2>Estimation du coût de vos projets</h2>
 				<canvas id="estimationChart"></canvas>
 			</div>
-
+			{% endif %}
 		</section>
 
 		{# Mes estimations #}
