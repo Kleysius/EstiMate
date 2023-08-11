@@ -103,7 +103,7 @@ footer {
     color: var(--light-color);
     background: var(--dark-color);
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     transition: transform 0.2s ease;
 }
 

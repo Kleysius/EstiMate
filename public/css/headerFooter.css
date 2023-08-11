@@ -50,7 +50,7 @@ header nav ul li {
     background-color: var(--bright-blue);
     box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     color: var(--white);
     padding: 10px 20px;
     cursor: pointer;

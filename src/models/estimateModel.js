@@ -12,70 +12,88 @@ const estimateSchema = new mongoose.Schema({
     },
     website_type: {
         type: String,
-        required: true
+        required: true,
+        default: 'vitrine'
     },
     mockup: {
         type: String,
-        required: true
+        required: true,
+        default: 'oui'
     },
     graphic_design: {
         type: String,
-        required: true
+        required: true,
+        default: 'non'
     },
     customization: {
         type: String,
-        required: true
+        required: true,
+        default: 'faible'
     },
     content: {
         type: String,
-        required: true
+        required: true,
+        default: 'oui'
     },
     page_number: {
         type: String,
-        required: true
+        required: true,
+        default: '1'
     },
     special_pages: [{
-        type: String
+        type: String,
+        default: 'Aucun'
     }],
     multilingual: {
         type: String,
-        required: true
+        required: true,
+        default: 'non'
     },
     language_count: {
         type: String,
-        required: true
+        required: true,
+        default: '1'
     },
     currency_conversion: {
         type: String,
-        required: true
+        required: true,
+        default: 'non'
     },
     location_based_content: {
         type: String,
-        required: true
+        required: true,
+        default: 'non'
     },
     third_party_services: [{
-        type: String
+        type: String,
+        default: 'Outils analytiques'
     }],
     user_auth: {
         type: String,
-        required: true
+        required: true,
+        default: 'non'
     },
     security_services: [{
-        type: String
+        type: String,
+        default: 'Je ne sais pas'
     }],
     project_budget: {
         type: Number,
-        required: true
+        required: true,
+        default: 0
     },
     date: {
-        type: Date
+        type: Date,
+        default: Date.now
     },
     website_examples: {
-        type: String
+        type: String,
+        default: 'Aucun'
     },
     support_pack: {
         type: String,
-        required: true
+        required: true,
+        default: 'Aucun'
     },
     total_price: {
         type: Number

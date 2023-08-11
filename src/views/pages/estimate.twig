@@ -28,56 +28,89 @@
 			<div class="card-container">
 				<div class="card">
 					<input type="radio" name="website_type" id="vitrine" value="vitrine">
+					<span class="checkbox-icon">
+						<i class="fas fa-desktop"></i>
+					</span>
 					<label for="vitrine">Site vitrine</label>
 					<p>Un site web destiné à présenter les informations de base d'une entreprise, d'une organisation ou d'un individu</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="ecommerce" value="ecommerce">
+					<span class="checkbox-icon">
+						<i class="fas fa-shopping-cart"></i>
+					</span>
 					<label for="ecommerce">Site e-commerce</label>
 					<p>Une plateforme en ligne qui permet de vendre des produits ou des services directement aux consommateurs</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="blog" value="blog">
+					<span class="checkbox-icon">
+						<i class="fas fa-pencil-alt"></i>
+					</span>
 					<label for="blog">Blog</label>
 					<p>Un site web où l'auteur partage des articles, des opinions, des réflexions ou des informations</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="portfolio" value="portfolio">
+					<span class="checkbox-icon">
+						<i class="fa-solid fa-laptop-code"></i>
+					</span>
 					<label for="portfolio">Portfolio</label>
 					<p>Un site web qui présente les réalisations, les compétences et les projets d'un individu ou d'une agence créative</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="news" value="actualités">
+					<span class="checkbox-icon">
+						<i class="fas fa-newspaper"></i>
+					</span>
 					<label for="news">Site d'actualités</label>
 					<p>Un site web dédié à la publication d'articles et de contenus d'actualités sur des sujets variés</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="social" value="social">
+					<span class="checkbox-icon">
+						<i class="fa-solid fa-users"></i>
+					</span>
 					<label for="social">Réseau social</label>
 					<p>Une plateforme en ligne qui permet aux utilisateurs de se connecter, d'interagir et de partager des contenus avec d'autres utilisateurs</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="forum" value="forum">
+					<span class="checkbox-icon">
+						<i class="fas fa-comments"></i>
+					</span>
 					<label for="forum">Forum</label>
 					<p>Un site web où les utilisateurs peuvent participer à des discussions, poser des questions, partager des idées et interagir</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="educational" value="éducatif">
+					<span class="checkbox-icon">
+						<i class="fas fa-graduation-cap"></i>
+					</span>
 					<label for="educational">Site éducatif</label>
 					<p>Un site web qui fournit des informations, des ressources et des cours en ligne sur des sujets éducatifs</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="job" value="emploi">
+					<span class="checkbox-icon">
+						<i class="fas fa-briefcase"></i>
+					</span>
 					<label for="job">Site d'offres d'emploi</label>
 					<p>Un site web qui rassemble des offres d'emploi et permet aux demandeurs d'emploi de rechercher et de postuler à des emplois</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="booking" value="réservation">
+					<span class="checkbox-icon">
+						<i class="fas fa-calendar-check"></i>
+					</span>
 					<label for="booking">Site de réservation</label>
 					<p>Un site web permettant aux utilisateurs de réserver des services tels que des hôtels, des vols, des voitures de location, des restaurants</p>
 				</div>
 				<div class="card">
 					<input type="radio" name="website_type" id="elearning" value="e-learning">
+					<span class="checkbox-icon">
+						<i class="fas fa-chalkboard-teacher"></i>
+					</span>
 					<label for="elearning">Site d'apprentissage en ligne</label>
 					<p>Un site web qui propose des cours en ligne, des tutoriels, des vidéos éducatives et d'autres ressources pour l'apprentissage à distance</p>
 				</div>
@@ -564,6 +597,14 @@
 		</section>
 
 	</form>
+
+	<div id="myModal" class="modal" style="display: none;">
+		<div class="modal-content">
+			<p>Veuillez répondre à toutes les questions avant de passer à la question suivante.</p>
+			<button id="closeModal">D'accord <i class="fa-regular fa-face-smile-beam"></i></button>
+		</div>
+	</div>
+
 
 	<div class="loader-container" style="display: none;">
 		<img src="/img/logoestimate.svg" alt="logo">
