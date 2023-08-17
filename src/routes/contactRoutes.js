@@ -15,9 +15,9 @@ contactRouter.get('/contact', (req, res) => {
 // Route post pour le formulaire de contact
 contactRouter.post('/contact', async (req, res) => {
     try {
-       contactController.createContact(req);
-       await contactController.sendMail(req); 
-       res.redirect('/dashboard');
+        contactController.createContact(req);
+        await contactController.sendMail(req);
+        res.redirect('/dashboard');
     } catch (error) {
         console.log(error);
         res.render('pages/dashboard.twig', { error: error });
@@ -34,6 +34,34 @@ contactRouter.delete('/contact/delete-message/:id', async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(500).json({ error: error });
+    }
+});
+
+contactRouter.post('/contactUs', async (req, res) => {
+    try {
+        const { name, email, phone, message } = req.body;
+
+        const newMessage = new contactModel({
+            name,
+            email,
+            phone,
+            message,
+            "subject": "Contact visiteur",
+        });
+
+        const validationError = newMessage.validateSync();
+        console.log(validationError);
+        if (validationError) {
+            res.render('pages/contact.twig', { error: validationError.errors });
+            return;
+        }
+
+        await contactController.sendMail(req);
+
+        res.redirect('/contact');
+    } catch (error) {
+        console.log(error);
+        res.render('pages/contact.twig', { error: error });
     }
 });
 

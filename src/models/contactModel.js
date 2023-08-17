@@ -17,7 +17,7 @@ const contactSchema = new mongoose.Schema({
     },
     firstname: {
         type: String,
-        required: true,
+        required: false,
         validate: {
             validator: function(value) {
                 return /^[a-zA-Z\s-']+$/.test(value);
@@ -33,6 +33,16 @@ const contactSchema = new mongoose.Schema({
                 return /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/.test(value);
             },
             message: 'L\'adresse email n\'est pas valide.'
+        }
+    },
+    phone: {
+        type: String,
+        required: false,
+        validate: {
+            validator: function(value) {
+                return /^0[1-9]([-. ]?[0-9]{2}){4}$/.test(value);
+            },
+            message: 'Le numéro de téléphone n\'est pas valide.'
         }
     },
     subject: {

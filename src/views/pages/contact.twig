@@ -20,7 +20,7 @@
 	<section class="form-container">
 
 		<article class="left-section">
-			<form class="form-box" action="/contact" method="post">
+			<form class="form-box" action="/contactUs" method="post">
 				<div class="form-wrapper">
 					<div class="mobile-text">
 						<h1 class="title">Contactez-nous</h1>
@@ -30,6 +30,9 @@
 						<div class="input-field">
 							<label class="input-title" for="name">Nom</label>
 							<input class="input" type="text" id="name" name="name" placeholder="Entrez votre nom ..." required>
+							{% if error.name %}
+								<p class="error">{{ error.name }}</p>
+							{% endif %}
 						</div>
 						<div class="input-field">
 							<label class="input-title" for="email">Email</label>

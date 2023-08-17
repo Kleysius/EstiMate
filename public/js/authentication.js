@@ -4,20 +4,20 @@ document.querySelectorAll('.flip-btn').forEach(btn => {
         const card = document.querySelector('.card');
         const frontFace = document.querySelector('.card-face-front');
         const backFace = document.querySelector('.card-face-back');
-        
+
         card.classList.toggle('is-flipped');
-        
+
         setTimeout(() => {
-        if (card.classList.contains('is-flipped')) {
-            card.style.backdropFilter = 'none';
-            frontFace.style.display = 'none';
-            backFace.style.display = 'block';
-            backFace.style.position = 'relative';
-        } else {
-            card.style.backdropFilter = 'blur(10px)';
-            backFace.style.display = 'none';
-            frontFace.style.display = 'block';
-        }
+            if (card.classList.contains('is-flipped')) {
+                card.style.backdropFilter = 'none';
+                frontFace.style.display = 'none';
+                backFace.style.display = 'block';
+                backFace.style.position = 'relative';
+            } else {
+                card.style.backdropFilter = 'blur(10px)';
+                backFace.style.display = 'none';
+                frontFace.style.display = 'block';
+            }
         }, 200);
     });
 });
