@@ -396,6 +396,7 @@ form {
   background-color: var(--white);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   height: 165px;
+  width: 300px;
   max-width: 400px;
   padding: 20px;
 }

@@ -15,7 +15,6 @@ body {
     background: rgba(255, 255, 255, 0.375);
     border-radius: 2rem;
     box-shadow: 0 0.75rem 2rem 0 rgba(0, 0, 0, 0.1);
-    width: 100%;
     max-width: 850px;
     display: flex;
 }
@@ -146,6 +145,7 @@ body {
 @media only screen and (max-width: 768px) {
     .form-container {
         flex-direction: column;
+        margin: 20px;
     }
 
     .left-section,
@@ -188,6 +188,7 @@ body {
 @media only screen and (max-width: 576px) {
     .form-container {
         box-shadow: none;
+        margin: 10px;
     }
 
     .title {
