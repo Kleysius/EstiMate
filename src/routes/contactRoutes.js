@@ -39,29 +39,27 @@ contactRouter.delete('/contact/delete-message/:id', async (req, res) => {
 
 contactRouter.post('/contactUs', async (req, res) => {
     try {
-        const { name, email, phone, message } = req.body;
+        const { name, email, phone, message, subject } = req.body;
 
         const newMessage = new contactModel({
             name,
             email,
             phone,
             message,
-            "subject": "Contact visiteur",
+            subject
         });
 
         const validationError = newMessage.validateSync();
         console.log(validationError);
         if (validationError) {
-            res.render('pages/contact.twig', { error: validationError.errors });
-            return;
+            res.status(400).json({ error: validationError });
         }
 
         await contactController.sendMail(req);
+        res.json({ message: "Message successfully sent" });
 
-        res.redirect('/contact');
     } catch (error) {
-        console.log(error);
-        res.render('pages/contact.twig', { error: error });
+        res.status(500).json({ error: error });
     }
 });
 

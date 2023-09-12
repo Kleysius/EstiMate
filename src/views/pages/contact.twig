@@ -20,7 +20,7 @@
 	<section class="form-container">
 
 		<article class="left-section">
-			<form class="form-box" action="/contactUs" method="post">
+			<form class="form-box" id="contact-form" action="#" method="post">
 				<div class="form-wrapper">
 					<div class="mobile-text">
 						<h1 class="title">Contactez-nous</h1>
@@ -47,7 +47,7 @@
 							<textarea class="text-input" id="message" name="message" placeholder="Entrez votre message ..." required></textarea>
 						</div>
 					</div>
-					<button class="submit-btn" type="submit">Envoyer</button>
+					<button type="button" class="submit-btn" onClick="sendEmailContact()">Envoyer</button>
 				</div>
 			</form>
 		</article>
@@ -89,4 +89,5 @@
 
 {% block scripts %}
 	<script src="/js/headerFooter.js"></script>
+	<script src="/js/contact.js"></script>
 {% endblock %}

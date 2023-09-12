@@ -47,7 +47,7 @@ const contactSchema = new mongoose.Schema({
     },
     subject: {
         type: String,
-        required: true,
+        required: false,
         validate: {
             validator: function(value) {
                 return /^[\s\p{P}\p{L}\d?!]{1,100}$/u.test(value);
