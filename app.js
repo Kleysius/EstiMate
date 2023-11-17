@@ -1,5 +1,5 @@
 // Importation des modules nécessaires
-const express = require('express'); // Express est le cadre de travail du serveur web que nous utilisons
+const express = require('express'); // Express est le framework node js
 const session = require('express-session'); // Module pour gérer les sessions
 const mongoose = require('mongoose'); // Mongoose est un ORM pour interagir avec MongoDB (ORM = Object Relational Mapping).
 const cookieParser = require('cookie-parser'); // Module pour analyser les cookies

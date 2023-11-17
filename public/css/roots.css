@@ -19,10 +19,6 @@
     --light-green: #02DEAF;
     --orange: #FF4000;
     --pink: #FF0035;
-    --dark-color: hsl(var(--hue), 100%, 9%);
-    --light-color: hsl(var(--hue), 95%, 98%);
-    --base: hsl(var(--hue), 95%, 50%);
-    --complimentary: hsl(var(--hue-complimentary), 95%, 50%);
-    --bg-gradient: linear-gradient(to bottom, hsl(var(--hue), 95%, 99%), hsl(var(--hue), 95%, 84%));
+    --bg-gradient: linear-gradient(to bottom, hsl(241, 60%, 95%), hsl(241, 60%, 80%));
     --font-family: 'Montserrat', sans-serif;
 }
